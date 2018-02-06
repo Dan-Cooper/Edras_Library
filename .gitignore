@@ -39,3 +39,5 @@ Unity3DRider.cs
 # Builds
 *.apk
 *.unitypackage
+
+\.vscode/settings\.json
