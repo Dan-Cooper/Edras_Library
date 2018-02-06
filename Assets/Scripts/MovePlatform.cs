@@ -4,36 +4,51 @@ using UnityEngine;
 
 public class MovePlatform : MonoBehaviour {
 	private Rigidbody rb;
+	public Rigidbody rbStart;
 	public Rigidbody rbEnd;	// EndPlatform will move with parent gameobject after Start function
 
 	public float speed;
-	private Vector3 start;
-	private Vector3 end;
-	private Vector3 moveVector;
+	[Tooltip("wait time is in seconds")]
+	public float waitTime;
+
 	private bool goingBack;
 
 	void Start () {
 		rb = GetComponent<Rigidbody>();
-
-		start = rb.position;
-		end = rbEnd.position;	// only EndPlatform's initial position is stored.
-		moveVector = end - start;
-
 		goingBack = false;
 	}
 
 	void FixedUpdate () {
 		if(!goingBack) {
-			rb.velocity = moveVector.normalized * speed;
-			if (rb.position == end) {				// only works if no decimals
-				goingBack = true;
-			}
+			transform.position = Vector3.MoveTowards(transform.position, rbEnd.position,
+				speed * Time.deltaTime);
+			goingBack= true;
 		}
 		else if(goingBack) {
-			rb.velocity = -moveVector.normalized * speed;
-			if(rb.position == start) {
-				goingBack = false;
-			}
+			transform.position = Vector3.MoveTowards(transform.position, rbStart.position,
+				speed * Time.deltaTime);
+			goingBack = false;
 		}
+//		if(!goingBack) {
+//			StartCoroutine(ToGoOrNotToGoBack());
+//		}
+//		else if(goingBack) {
+//			StartCoroutine(ToGoOrNotToGoBack());
+//		}
 	}
+
+//	IEnumerator ToGoOrNotToGoBack() {
+//		if(!goingBack) {
+//			transform.position = Vector3.MoveTowards(transform.position, rbEnd.position,
+//				speed * Time.deltaTime);
+//			goingBack= true;
+//		}
+//		else if(goingBack) {
+//			transform.position = Vector3.MoveTowards(transform.position, rbStart.position,
+//				speed * Time.deltaTime);
+//			goingBack = false;
+//		}
+//		yield return null;
+//	}
+
 }
