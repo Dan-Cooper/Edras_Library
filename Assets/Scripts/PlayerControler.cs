@@ -9,6 +9,7 @@ public class PlayerControler : MonoBehaviour
 	//private Rigidbody rb;
 	
 	public float walkSpeed;
+	private bool sprintRequest;
 	
 	[Range(1,10)]
 	public float jumpVelocity;
@@ -31,10 +32,9 @@ public class PlayerControler : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 		
-		if (Input.GetButtonDown("Jump") && charControl.isGrounded)
-		{
-			jumpRequest = true;
-		}
+		if (Input.GetButtonDown("Jump") && charControl.isGrounded) jumpRequest = true;
+		if (Input.GetButtonDown("Run")) walkSpeed *= 2;
+		if (Input.GetButtonUp("Run")) walkSpeed /= 2;
 		MovePlayer();
 	}
 /* Was used in simplemove might bring back.
@@ -60,38 +60,21 @@ public class PlayerControler : MonoBehaviour
 			{
 				moveDir.y = jumpVelocity;
 				jumpRequest = false;
+				
 			}
 		}
+		if (moveDir.y < 0.2)
+		{
+			moveDir += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+			//Debug.Log("Long" + moveDir.y);
+		}
+		else if (moveDir.y > 0.2 && !Input.GetButton("Jump"))
+		{
+			moveDir += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+			//Debug.Log("short" + moveDir.y);
+		}
+		//Debug.Log("Move" + moveDir);
 		moveDir.y -= gravity * Time.deltaTime;
 		charControl.Move(moveDir * Time.deltaTime);
-		
-		
-		/*Breaking simple move so player can preform a basic jump.
-		//Gets Raw input data
-		float h = Input.GetAxis("Horizontal");
-		float v = Input.GetAxis("Vertical");
-		//Modifies data for speed and direction
-		Vector3 moveSide = transform.right * h * walkSpeed;
-		Vector3 moveForw = transform.forward * v * walkSpeed;
-		//Makes change to object
-		charControl.SimpleMove(moveSide);
-		charControl.SimpleMove(moveForw);
-		*/
 	}
-	
-	/*//Adjusts the jump hight based on how long the jump key is presed
-	//NEEDS TO BE REWRITEN FOR THE NEW MOVER SCRIPT
-	//TODO
-	void TunedJump()
-	{
-		if (rb.velocity.y < 0)
-		{
-			rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-		}
-		else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
-		{
-			rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
-		}
-	}
-	*/
 }
