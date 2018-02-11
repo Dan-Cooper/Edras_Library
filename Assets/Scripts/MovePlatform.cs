@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MovePlatform : MonoBehaviour {
-	private Rigidbody rb;
 	public Rigidbody rbStart;
 	public Rigidbody rbEnd;	// EndPlatform will move with parent gameobject after Start function
 
@@ -16,7 +15,6 @@ public class MovePlatform : MonoBehaviour {
 	private bool goingBack;
 
 	void Start () {
-		rb = GetComponent<Rigidbody>();
 		moveTime = speed;
 		goingBack = false;
 		Debug.Log("moveTime = " + moveTime);
