@@ -10,45 +10,40 @@ public class MovePlatform : MonoBehaviour {
 	public float speed;
 	[Tooltip("wait time is in seconds")]
 	public float waitTime;
+	private float moveTime;
 
+	[SerializeField]
 	private bool goingBack;
 
 	void Start () {
 		rb = GetComponent<Rigidbody>();
+		moveTime = speed;
 		goingBack = false;
+		Debug.Log("moveTime = " + moveTime);
+
 	}
 
 	void FixedUpdate () {
-		if(!goingBack) {
-			transform.position = Vector3.MoveTowards(transform.position, rbEnd.position,
-				speed * Time.deltaTime);
-			goingBack= true;
-		}
-		else if(goingBack) {
-			transform.position = Vector3.MoveTowards(transform.position, rbStart.position,
-				speed * Time.deltaTime);
-			goingBack = false;
-		}
-//		if(!goingBack) {
-//			StartCoroutine(ToGoOrNotToGoBack());
-//		}
-//		else if(goingBack) {
-//			StartCoroutine(ToGoOrNotToGoBack());
-//		}
+		StartCoroutine(PlatformNowMove());
 	}
 
-//	IEnumerator ToGoOrNotToGoBack() {
-//		if(!goingBack) {
-//			transform.position = Vector3.MoveTowards(transform.position, rbEnd.position,
-//				speed * Time.deltaTime);
-//			goingBack= true;
-//		}
-//		else if(goingBack) {
-//			transform.position = Vector3.MoveTowards(transform.position, rbStart.position,
-//				speed * Time.deltaTime);
-//			goingBack = false;
-//		}
-//		yield return null;
-//	}
+	IEnumerator PlatformNowMove() {
+        if (!goingBack)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, rbEnd.position,
+                speed * Time.deltaTime);
+//			yield return new WaitUntil( () => rb.velocity == Vector3.zero);
+			yield return new WaitForSecondsRealtime(moveTime + waitTime*Time.deltaTime);
+			goingBack = true;
+        }
+        else if (goingBack)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, rbStart.position,
+                speed * Time.deltaTime);
+//			yield return new WaitUntil( () => rb.velocity == Vector3.zero);
+			yield return new WaitForSecondsRealtime(moveTime + waitTime);
+			goingBack = false;
+        }
+    }
 
 }
