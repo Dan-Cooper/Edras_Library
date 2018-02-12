@@ -26,6 +26,9 @@ public class PlayerControler : MonoBehaviour
     private bool lDetect;
     private bool rdetect;
 
+   [SerializeField] private float climbVelocity;
+   [SerializeField] private float climbDecay = 0;
+
     // Use this for initialization
     void Awake()
     {
@@ -41,6 +44,10 @@ public class PlayerControler : MonoBehaviour
         if (Input.GetButtonDown("Jump") && charControl.isGrounded) jumpRequest = true;
         if (Input.GetButtonDown("Run")) walkSpeed *= 2;
         if (Input.GetButtonUp("Run")) walkSpeed /= 2;
+        if (fDetect && !charControl.isGrounded)  //To Slow rait of climb as climb progresses.
+        {
+            climbDecay += Mathf.Lerp(0,8,(Time.deltaTime / 1f));
+        }
 
         MovePlayer();
     }
@@ -73,10 +80,11 @@ public class PlayerControler : MonoBehaviour
                 jumpRequest = false;
             }
             fDetect = false;
+            climbDecay = 0;
         }
         if (fDetect)
         {
-            moveDir.y = jumpVelocity / 2;
+            moveDir.y = climbVelocity - climbDecay;
         }
         if (moveDir.y < 0.2)
         {
@@ -93,9 +101,6 @@ public class PlayerControler : MonoBehaviour
         charControl.Move(moveDir * Time.deltaTime);
     }
 
-    void WallClimb()
-    {
-    }
 
     //Fires Raycasts around the player at center and top of prefab.
     void ParcoreDetetion()
