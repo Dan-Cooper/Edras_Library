@@ -8,7 +8,7 @@ public class RampSpawning : MonoBehaviour {
 	public Transform cameraTransform;
 	public Transform whereRampSpawns;
 	public int maxRamps;
-	public bool rampEnable;		// Set to false to disable
+//	public bool rampEnable;		// Set to false to disable ramp spawning
 
 	[SerializeField]
 	private int currentRamps;
@@ -17,16 +17,16 @@ public class RampSpawning : MonoBehaviour {
 
 	void Start () {
 		holdingRamp = false;
-		rampEnable = true;
+//		rampEnable = true;
 	}
 	
 	void Update () {
-		if (Input.GetButtonDown("Fire3")){
+		if (Input.GetButtonDown("Summon")){
 			if((currentRamps < maxRamps) && !holdingRamp){
 				Debug.Log("get button successs!");
 				Instantiate(ramp, whereRampSpawns.localPosition + cameraTransform.position,
 					Quaternion.identity
-					, playerTransform
+//					, playerTransform
 				);
 
 				currentRamps += 1;
