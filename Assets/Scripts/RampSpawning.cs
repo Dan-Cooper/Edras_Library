@@ -1,44 +1,67 @@
-﻿using System.Collections;
+﻿// Cathy made this.
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RampSpawning : MonoBehaviour {
 	public GameObject ramp;
+	public GameObject rampGuideObj;
 	public Transform playerTransform;
-	public Transform cameraTransform;
+	public Transform cameraTransform;	//unused?
 	public Transform whereRampSpawns;
 	public int maxRamps;
-//	public bool rampEnable;		// Set to false to disable ramp spawning
+
+	private GameObject guideInst;
+
+//	public int rampTag;
+	/*	0 = platform spawning disabled
+	 *	1 = spawn ramp
+	 *	2 = spawn floor
+	 *	3 = spawn wall
+	 *	4 = spawn lift
+	 *	any other # = error
+	*/
 
 	[SerializeField]
 	private int currentRamps;
 	[SerializeField]
-	private bool holdingRamp;
+	private bool prepareRamp;
 
 	void Start () {
-		holdingRamp = false;
-//		rampEnable = true;
+		prepareRamp = false;
 	}
 	
 	void Update () {
 		if (Input.GetButtonDown("Summon")){
-			if((currentRamps < maxRamps) && !holdingRamp){
+
+			if (prepareRamp) {
+				// then delete rampGuide instance
+				Destroy(guideInst);
+//				rampInst =
+				Instantiate(ramp
+					, whereRampSpawns.position
+					, playerTransform.rotation
+				);
+
+				prepareRamp = false;
+				Debug.Log("Is prepareRamp false? " + prepareRamp);
+			}
+			else if((currentRamps < maxRamps) && !prepareRamp){
 				Debug.Log("get button successs!");
-				Instantiate(ramp, whereRampSpawns.localPosition + cameraTransform.position,
-					Quaternion.identity
-//					, playerTransform
+				guideInst = 
+				Instantiate(rampGuideObj
+					, whereRampSpawns.position
+					, playerTransform.rotation
+					, playerTransform
 				);
 
 				currentRamps += 1;
-				holdingRamp = true;
-				Debug.Log("holdingRamp = " + holdingRamp);
+				prepareRamp = true;
+				Debug.Log("Is prepareRamp true? " + prepareRamp);
 			}
 
-			else if (holdingRamp) {
-	//			ramp.transform.parent = null;
-				holdingRamp = false;
-				Debug.Log("holdingRamp = " + holdingRamp);
-			}
+
 
 		}
 
