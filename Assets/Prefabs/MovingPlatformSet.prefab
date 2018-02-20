@@ -37,10 +37,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4662711996447870}
   - component: {fileID: 114598391151336356}
+  - component: {fileID: 114526883039106610}
   - component: {fileID: 33518660716296704}
   - component: {fileID: 65476197491018410}
   - component: {fileID: 23729990844856216}
-  - component: {fileID: 114526883039106610}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Moving Platform

@@ -226,14 +226,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WalkSpeed: 5
-
   JumpVelocity: 4
   Gravity: 10
   FallMultiplier: 2
   LowJumpMultiplier: 4
   _climbVelocity: 0
   _climbDecay: 0
-
 --- !u!124 &124900764074637050
 Behaviour:
   m_ObjectHideFlags: 1
