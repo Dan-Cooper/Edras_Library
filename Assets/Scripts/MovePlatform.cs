@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// Cathy made this.
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,16 +28,14 @@ public class MovePlatform : MonoBehaviour {
 	}
 
 	IEnumerator PlatformNowMove() {
-        if (!goingBack)
-        {
+        if (!goingBack) {
             transform.position = Vector3.MoveTowards(transform.position, rbEnd.position,
                 speed * Time.deltaTime);
 //			yield return new WaitUntil( () => rb.velocity == Vector3.zero);
 			yield return new WaitForSecondsRealtime(moveTime + waitTime*Time.deltaTime);
 			goingBack = true;
         }
-        else if (goingBack)
-        {
+        else if (goingBack) {
             transform.position = Vector3.MoveTowards(transform.position, rbStart.position,
                 speed * Time.deltaTime);
 //			yield return new WaitUntil( () => rb.velocity == Vector3.zero);
@@ -44,4 +44,14 @@ public class MovePlatform : MonoBehaviour {
         }
     }
 
+	void OnCollisionEnter(Collision coll){
+		if (coll.gameObject.tag == "Player") {
+			coll.transform.parent = this.transform;
+		}
+	}
+	void OnCollisionExit(Collision coll){
+		if (coll.gameObject.tag == "Player") {
+			coll.transform.parent = null;
+		}
+	}
 }
