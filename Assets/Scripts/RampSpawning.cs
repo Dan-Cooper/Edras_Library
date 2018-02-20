@@ -35,34 +35,25 @@ public class RampSpawning : MonoBehaviour {
 	[SerializeField]	private int rampTag;	// for the array
 	[SerializeField]	private int currentRamps;
 
-
-
 	void Start () {
 		rampEnable = true;
 		prepareRamp = false;
 		rampTag = 0;
 		currentRamps = 0;
 	}
+
 	
 	void Update () {
 		if(rampEnable){
+			//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 
-			if(Input.GetButtonDown("Switch Plat")){
-				// assign ramp# based on rampTag
-				if(rampTag>=0 && rampTag <=3){
-					rampTag +=1;
-				}
-				else if(rampTag == 4){
-					rampTag = 0;
-				}
-			}
-				
 			if (Input.GetButtonDown("Summon Plat")){
 
 		
 				if (prepareRamp) {
 
 					Destroy(guideInst);	// deletes rampGuide instance
+										// assigned in the "else if" below
 	//				rampInst =
 
 					//	if not cancelled or switched
@@ -74,32 +65,50 @@ public class RampSpawning : MonoBehaviour {
 					// "if cancellled" go here
 
 					prepareRamp = false;
-					Debug.Log("Is prepareRamp false? " + prepareRamp);
 				}
 				else if((currentRamps < maxRamps) && !prepareRamp){
-					Debug.Log("get button successs!");
 					guideInst = 
-					Instantiate(rampGuideObj[rampTag]
-						, whereRampSpawns.position
-						, playerTransform.rotation
-						, playerTransform
-					);
+						Instantiate(rampGuideObj[rampTag]
+							, whereRampSpawns.position
+							, playerTransform.rotation
+							, playerTransform
+						);
 
 					currentRamps += 1;
 					prepareRamp = true;
-					Debug.Log("Is prepareRamp true? " + prepareRamp);
 				}
 
 				else {
-					Debug.Log("Some error.");
+					Debug.Log("CN: Some ramp spawning error.");
 				}
 
 			}
 
+			if(Input.GetButtonDown("Switch Plat")){
+				// assign ramp# based on rampTag
+				if(rampTag>=0 && rampTag <=3){
+					rampTag +=1;
+				}
+				else if(rampTag == 4){
+					rampTag = 0;
+				}
+
+				if(prepareRamp){
+					Destroy(guideInst);
+					guideInst =
+						Instantiate(rampGuideObj[rampTag]
+							, whereRampSpawns.position
+							, playerTransform.rotation
+							, playerTransform
+						);
+				}
+			}
+
+			//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^			
 		}
 
 		else {	//	When ramp spawning is disabled.
-			Debug.Log("Ramp spawning disabled. :3");
+			Debug.Log("CN: Ramp spawning disabled. :3");
 		}
 
 

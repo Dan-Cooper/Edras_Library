@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -510,7 +510,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0add4028de12c3544a1c33d66fb6100f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 10
+  WalkSpeed: 0
+  JumpVelocity: 0
+  Gravity: 0
+  FallMultiplier: 0
+  LowJumpMultiplier: 0
+  _climbVelocity: 0
+  _climbDecay: 0
 --- !u!143 &699860752
 CharacterController:
   m_ObjectHideFlags: 0
@@ -567,11 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acc09b70f5f5d84586f97dd658d2569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 699860754}
-  cameraTransform: {fileID: 1623874142}
-  whereRampSpawns: {fileID: 756260055}
   maxRamps: 25
-  rampEnable: 0
   ramp:
   - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
   - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
@@ -582,9 +584,12 @@ MonoBehaviour:
   - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
   - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
   - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
-  rampTag: 0
-  currentRamps: 4
+  playerTransform: {fileID: 699860754}
+  whereRampSpawns: {fileID: 756260055}
+  rampEnable: 0
   prepareRamp: 0
+  rampTag: 0
+  currentRamps: 0
 --- !u!54 &699860757
 Rigidbody:
   m_ObjectHideFlags: 0
