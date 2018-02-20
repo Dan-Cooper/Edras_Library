@@ -1,4 +1,4 @@
-﻿//	Instructions for level designers :D
+﻿﻿//	Instructions for level designers :D
 //	from Cathy
 
 using System.Collections;
