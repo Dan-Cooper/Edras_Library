@@ -377,7 +377,6 @@ GameObject:
   - component: {fileID: 649968752}
   - component: {fileID: 649968751}
   - component: {fileID: 649968750}
-  - component: {fileID: 649968749}
   - component: {fileID: 649968748}
   m_Layer: 0
   m_Name: Platform
@@ -402,21 +401,6 @@ MonoBehaviour:
   speed: 10
   waitTime: 0
   goingBack: 0
---- !u!54 &649968749
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 649968747}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!23 &649968750
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -478,7 +462,7 @@ Transform:
   m_GameObject: {fileID: 649968747}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 15, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 1049785718}
   m_RootOrder: 1
@@ -509,7 +493,7 @@ GameObject:
   - component: {fileID: 699860755}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -563,10 +547,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 699860750}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1623874142}
+  - {fileID: 756260055}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -582,9 +567,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ramp: {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  rampGuide: {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
   playerTransform: {fileID: 699860754}
-  maxRamps: 2
+  cameraTransform: {fileID: 1623874142}
+  whereRampSpawns: {fileID: 756260055}
+  maxRamps: 25
   currentRamps: 0
+  prepareRamp: 0
+--- !u!1 &756260054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 756260055}
+  - component: {fileID: 756260056}
+  m_Layer: 0
+  m_Name: WhereRampSpawns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &756260055
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 756260054}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 699860754}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &756260056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 756260054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb161eb961e4484cbb6a4c30de27ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dummyVariable: Except this :3c
 --- !u!1 &1049785716
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,7 +650,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1049785716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17, y: 1.5, z: 17}
+  m_LocalPosition: {x: 2, y: 7.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1698363701}
@@ -1297,7 +1327,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1985147345}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -33, y: 0, z: 0}
+  m_LocalPosition: {x: -20, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1049785718}
