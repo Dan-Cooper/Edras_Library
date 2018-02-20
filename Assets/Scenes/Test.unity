@@ -567,14 +567,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acc09b70f5f5d84586f97dd658d2569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ramp: {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
-  rampGuideObj: {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a,
-    type: 2}
   playerTransform: {fileID: 699860754}
   cameraTransform: {fileID: 1623874142}
   whereRampSpawns: {fileID: 756260055}
   maxRamps: 25
-  currentRamps: 0
+  rampEnable: 0
+  ramp:
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  rampGuideObj:
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  rampTag: 0
+  currentRamps: 4
   prepareRamp: 0
 --- !u!54 &699860757
 Rigidbody:
