@@ -21,9 +21,26 @@ GameObject:
   - component: {fileID: 4422665128820592}
   - component: {fileID: 143504246234474268}
   - component: {fileID: 114993733477018522}
+  - component: {fileID: 114051967819790358}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1321452864910982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4312663345874202}
+  - component: {fileID: 114092656419783180}
+  m_Layer: 0
+  m_Name: WhereRampSpawns
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,6 +78,19 @@ Transform:
   m_Father: {fileID: 4422665128820592}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4312663345874202
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1321452864910982}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4422665128820592}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4422665128820592
 Transform:
   m_ObjectHideFlags: 1
@@ -68,10 +98,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1060386474349928}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.08, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4054373932001426}
+  - {fileID: 4312663345874202}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -118,6 +149,46 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1543677087757534}
   m_Enabled: 1
+--- !u!114 &114051967819790358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1060386474349928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8acc09b70f5f5d84586f97dd658d2569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRamps: 20
+  ramp:
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  rampGuideObj:
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  playerTransform: {fileID: 4422665128820592}
+  whereRampSpawns: {fileID: 4312663345874202}
+  rampEnable: 0
+  prepareRamp: 0
+  rampTag: 0
+  currentRamps: 0
+--- !u!114 &114092656419783180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1321452864910982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb161eb961e4484cbb6a4c30de27ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dummyVariable: :3c
 --- !u!114 &114317350164902830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,11 +225,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0add4028de12c3544a1c33d66fb6100f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
-  jumpVelocity: 8
-  gravity: 10
-  fallMultiplier: 4
-  lowJumpMultiplier: 2
+  WalkSpeed: 5
+  JumpVelocity: 5
+  Gravity: 5
+  FallMultiplier: 5
+  LowJumpMultiplier: 5
+  _climbVelocity: 5
+  _climbDecay: 5
 --- !u!124 &124900764074637050
 Behaviour:
   m_ObjectHideFlags: 1

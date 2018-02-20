@@ -7,11 +7,10 @@ using UnityEngine;
 
 public class StartPointInfo : MonoBehaviour {
 	
-	[Header("Keep StartPoint and Platform")]
-	[Header("      object at default transform.")]
+	[Header("Keep Platform object at default ")]
+	[Header("      transform.")]
 	[Space]
-	[Header("Move MovingPlatformSet to")]
-	[Header("      move entire thing.")]
+	[Header("Move and scale MovingPlatformSet.")]
 	[Space]
 	public string dummyVariable;
 

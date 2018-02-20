@@ -28,7 +28,7 @@ public class RampSpawning : MonoBehaviour {
 
 	[Space]
 
-	[Header("Variables below used just for")]
+	[Header("Variables below only used for")]
 	[Header("    reference")]	// They will be reset at Start()
 	public bool rampEnable;
 	[SerializeField]	private bool prepareRamp;
@@ -86,10 +86,10 @@ public class RampSpawning : MonoBehaviour {
 
 			if(Input.GetButtonDown("Switch Plat")){
 				// assign ramp# based on rampTag
-				if(rampTag>=0 && rampTag <=3){
+				if(rampTag>=0 && rampTag <=2){
 					rampTag +=1;
 				}
-				else if(rampTag == 4){
+				else if(rampTag == 3){
 					rampTag = 0;
 				}
 
