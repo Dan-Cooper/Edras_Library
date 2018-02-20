@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 649968748}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: Moving Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -462,7 +462,7 @@ Transform:
   m_GameObject: {fileID: 649968747}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15, y: 1, z: 5}
+  m_LocalScale: {x: 28.83, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 1049785718}
   m_RootOrder: 1
@@ -491,6 +491,7 @@ GameObject:
   - component: {fileID: 699860752}
   - component: {fileID: 699860751}
   - component: {fileID: 699860755}
+  - component: {fileID: 699860757}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -566,14 +567,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acc09b70f5f5d84586f97dd658d2569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ramp: {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
-  rampGuide: {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
   playerTransform: {fileID: 699860754}
   cameraTransform: {fileID: 1623874142}
   whereRampSpawns: {fileID: 756260055}
   maxRamps: 25
-  currentRamps: 0
+  rampEnable: 0
+  ramp:
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  rampGuideObj:
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  - {fileID: 1951323821914300, guid: 8fcb2d981c520804c9f92dd9d848da1a, type: 2}
+  rampTag: 0
+  currentRamps: 4
   prepareRamp: 0
+--- !u!54 &699860757
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 699860750}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &756260054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,7 +1338,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1985147346}
+  - component: {fileID: 1985147349}
   - component: {fileID: 1985147347}
+  - component: {fileID: 1985147348}
   m_Layer: 0
   m_Name: EndPoint
   m_TagString: Untagged
@@ -1328,7 +1356,7 @@ Transform:
   m_GameObject: {fileID: 1985147345}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -20, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 15, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 1049785718}
   m_RootOrder: 2
@@ -1348,6 +1376,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1985147348
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1985147345}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1985147349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1985147345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f2f4397e11c02845b29a8b1b7216bf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dummyVariable: 
 --- !u!1 &2115867784
 GameObject:
   m_ObjectHideFlags: 0
