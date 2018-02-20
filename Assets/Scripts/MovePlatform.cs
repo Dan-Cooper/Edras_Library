@@ -45,13 +45,17 @@ public class MovePlatform : MonoBehaviour {
     }
 
 	void OnCollisionEnter(Collision coll){
+		Debug.Log("1a");
 		if (coll.gameObject.tag == "Player") {
-			coll.transform.parent = this.transform;
+			coll.transform.parent = gameObject.transform;
+			Debug.Log("1b");
 		}
 	}
 	void OnCollisionExit(Collision coll){
+		Debug.Log("2a");
 		if (coll.gameObject.tag == "Player") {
 			coll.transform.parent = null;
+			Debug.Log("2b");
 		}
 	}
 }
