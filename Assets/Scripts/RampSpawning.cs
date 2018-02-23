@@ -15,7 +15,8 @@ public class RampSpawning : MonoBehaviour {
 	[Header("2 = spawn wall")]
 	[Header("3 = spawn lift")]
 	[Header("any other # = error")]
-	[Header("Size should be 4.")]
+	[Header("Size should be the same integars.")]
+	public int arraySize;
 	public GameObject[] ramp;
 	public GameObject[] rampGuideObj;
 
@@ -86,11 +87,14 @@ public class RampSpawning : MonoBehaviour {
 
 			if(Input.GetButtonDown("Switch Plat")){
 				// assign ramp# based on rampTag
-				if(rampTag>=0 && rampTag <=2){
+				if(rampTag>=0 && rampTag < arraySize-1){
 					rampTag +=1;
 				}
-				else if(rampTag == 3){
+				else if(rampTag == arraySize-1){
 					rampTag = 0;
+				}
+				else{
+					Debug.Log("Error.");
 				}
 
 				if(prepareRamp){
