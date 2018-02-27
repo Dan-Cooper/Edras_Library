@@ -18,7 +18,6 @@ public class RampSpawning : MonoBehaviour {
 	public Transform whereRampSpawns;
 	private Transform playerTransform;
 	private GameObject guideInst;
-	//	public Transform cameraTransform;	//unused?
 
 	[Space]
 

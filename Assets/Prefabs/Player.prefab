@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 143504246234474268}
   - component: {fileID: 114993733477018522}
   - component: {fileID: 114051967819790358}
+  - component: {fileID: 114530242861573322}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -177,7 +178,6 @@ MonoBehaviour:
   - {fileID: 1903693307489144, guid: c0708a8acec307d45b8bc57b908b3582, type: 2}
   - {fileID: 1963426743370882, guid: 691d2ad1cfa2242449ee166e6c6ee584, type: 2}
   whereRampSpawns: {fileID: 4312663345874202}
-  playerTransform: {fileID: 4422665128820592}
   rampEnable: 0
 --- !u!114 &114092656419783180
 MonoBehaviour:
@@ -216,6 +216,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 8e1da9939d1818e43a0aeede3e2ad781, type: 2}
+--- !u!114 &114530242861573322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1060386474349928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ccd5ba3484e474d86adb3d28d6e460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dummyVariable: 
 --- !u!114 &114993733477018522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,7 +265,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 46
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
