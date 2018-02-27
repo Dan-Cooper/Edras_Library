@@ -6,20 +6,21 @@ using UnityEngine;
 
 using UnityEngine.SceneManagement;
 
-public class GameController : MonoBehaviour {
-	
-	[Header("For now, press R to reset scene.")]
-	[Header("      Or whatever button you assign ")]
-	[Header("      to 'Reset' in the InputManager.")]
+public class KillVolumeScript : MonoBehaviour {
+
+	[Header("For now, entering the KillVolume")]
+	[Header("      will reset the current scene.")]
 
 	[Space]
 	public string dummyVariable;
 
-	void Update () {
-		if(Input.GetButtonUp("Reset")) {
+	void OnTriggerEnter(Collider other){
+		if (other.gameObject.tag == "Player") {
 			//	reload scene for now
 			Scene scene = SceneManager.GetActiveScene();
 			SceneManager.LoadScene(scene.name);
+			Debug.Log("Ya deid.");
 		}
+
 	}
 }

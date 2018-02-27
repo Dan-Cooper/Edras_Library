@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2f4397e11c02845b29a8b1b7216bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dummyVariable: 
+  dummyVariable: dummy script
 --- !u!114 &114496748855125408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2050bdb46f33474c93179c8c9c17c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dummyVariable: Read the above.
+  dummyVariable: dummy script
 --- !u!114 &114526883039106610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,4 +253,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2050bdb46f33474c93179c8c9c17c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dummyVariable: Hi.
+  dummyVariable: dummy script
