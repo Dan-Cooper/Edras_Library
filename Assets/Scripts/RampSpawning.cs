@@ -8,13 +8,6 @@ public class RampSpawning : MonoBehaviour {
 
 	public int maxRamps;
 
-	[Space]
-
-	[Header("0 = spawn ramp")]
-	[Header("1 = spawn floor")]
-	[Header("2 = spawn wall")]
-	[Header("3 = spawn lift")]
-	[Header("any other # = error")]
 	[Header("Size should be the same integars.")]
 	public int arraySize;
 	public GameObject[] ramp;
@@ -22,8 +15,8 @@ public class RampSpawning : MonoBehaviour {
 
 	[Space]
 
-	public Transform playerTransform;
 	public Transform whereRampSpawns;
+	private Transform playerTransform;
 	private GameObject guideInst;
 	//	public Transform cameraTransform;	//unused?
 
@@ -32,11 +25,15 @@ public class RampSpawning : MonoBehaviour {
 	[Header("Variables below only used for")]
 	[Header("    reference")]	// They will be reset at Start()
 	public bool rampEnable;
-	[SerializeField]	private bool prepareRamp;
-	[SerializeField]	private int rampTag;	// for the array
-	[SerializeField]	private int currentRamps;
+//	[SerializeField]	
+	private bool prepareRamp;
+//	[SerializeField]	
+	private int rampTag;	// for the array
+//	[SerializeField]	
+	private int currentRamps;
 
 	void Start () {
+		playerTransform = GetComponent<Transform>();
 		rampEnable = true;
 		prepareRamp = false;
 		rampTag = 0;
