@@ -154,6 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0add4028de12c3544a1c33d66fb6100f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ledge: {fileID: 1830340746508808, guid: ca0c91592e91c2846b8e897d0b10386d, type: 2}
+  LedgeSpawned: 0
   WalkSpeed: 5
   JumpVelocity: 8
   Gravity: 10

@@ -71,7 +71,7 @@ public class PlayerControler : MonoBehaviour
 
     void MovePlayer()
     {
-        if (_charControl.isGrounded || (_wallContact && !_charControl.isGrounded))
+        if (_charControl.isGrounded || (_wallContact ))
         {
             //Debug.Log("Jump" + jumpRequest);
             _moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -104,7 +104,7 @@ public class PlayerControler : MonoBehaviour
         //Debug.Log("Move" + moveDir.y);
         _moveDir.y -= Gravity * Time.deltaTime;
         _charControl.Move(_moveDir * Time.deltaTime);
-        _wallContact = false;
+        //if(!_fDetect || !_rDetect || !_lDetect) _wallContact = false;
     }
 
     void LedgeDectect(Ray ledgeRay, Ray bodyRay)
@@ -125,15 +125,27 @@ public class PlayerControler : MonoBehaviour
             _moveDir.y = _climbVelocity - _climbDecay;
             _wallContact = true;
         }
+        else if(!_fDetect)
+        {
+            _wallContact = false;
+        }
         if (_lDetect)
         {
             _moveDir.y = _climbVelocity/2 - _climbDecay;
             _wallContact = true;
         }
+        else if(!_lDetect)
+        {
+            _wallContact = false;
+        }
         if (_rDetect)
         {
             _moveDir.y = _climbVelocity/2 -_climbDecay;
             _wallContact = true;
+        }
+        else if(!_rDetect)
+        {
+            _wallContact = false;
         }
     }
 
