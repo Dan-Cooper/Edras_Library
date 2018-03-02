@@ -8,34 +8,31 @@ public class RampSpawning : MonoBehaviour {
 
 	public int maxRamps;
 
-	[Space]
-
-	[Header("0 = spawn ramp")]
-	[Header("1 = spawn floor")]
-	[Header("2 = spawn wall")]
-	[Header("3 = spawn lift")]
-	[Header("any other # = error")]
-	[Header("Size should be 4.")]
+	[Header("Size should be the same integars.")]
+	public int arraySize;
 	public GameObject[] ramp;
 	public GameObject[] rampGuideObj;
 
 	[Space]
 
-	public Transform playerTransform;
 	public Transform whereRampSpawns;
+	private Transform playerTransform;
 	private GameObject guideInst;
-	//	public Transform cameraTransform;	//unused?
 
 	[Space]
 
-	[Header("Variables below used just for")]
+	[Header("Variables below only used for")]
 	[Header("    reference")]	// They will be reset at Start()
 	public bool rampEnable;
-	[SerializeField]	private bool prepareRamp;
-	[SerializeField]	private int rampTag;	// for the array
-	[SerializeField]	private int currentRamps;
+//	[SerializeField]	
+	private bool prepareRamp;
+//	[SerializeField]	
+	private int rampTag;	// for the array
+//	[SerializeField]	
+	private int currentRamps;
 
 	void Start () {
+		playerTransform = GetComponent<Transform>();
 		rampEnable = true;
 		prepareRamp = false;
 		rampTag = 0;
@@ -86,11 +83,14 @@ public class RampSpawning : MonoBehaviour {
 
 			if(Input.GetButtonDown("Switch Plat")){
 				// assign ramp# based on rampTag
-				if(rampTag>=0 && rampTag <=3){
+				if(rampTag>=0 && rampTag < arraySize-1){
 					rampTag +=1;
 				}
-				else if(rampTag == 4){
+				else if(rampTag == arraySize-1){
 					rampTag = 0;
+				}
+				else{
+					Debug.Log("Error.");
 				}
 
 				if(prepareRamp){
