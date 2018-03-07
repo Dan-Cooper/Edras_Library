@@ -40,17 +40,21 @@ public class PlayerControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))  LedgeSpawned = false;
+        //if (Input.GetKeyDown(KeyCode.P))  LedgeSpawned = false; //used for debuging ledge spawning
+        
         ParcoreDetetion();
 
         if (Input.GetButtonDown("Jump") && _charControl.isGrounded) _jumpRequest = true;
         if (Input.GetButtonDown("Run")) WalkSpeed *= 2;
         if (Input.GetButtonUp("Run")) WalkSpeed /= 2;
+        
+        if (_lDetect || _rDetect || _fDetect) _wallContact = true;
+        else _wallContact = false;
+        
         if ((_fDetect || _rDetect || _lDetect) && !_charControl.isGrounded)  //To Slow rait of climb as climb progresses.
         {
             _climbDecay += Mathf.Lerp(0,8,(Time.deltaTime / 1f));
         }
-
 
         MovePlayer();
     }
@@ -68,35 +72,69 @@ public class PlayerControler : MonoBehaviour
         //moveDir.y -= gravity * Time.fixedDeltaTime;
         //charControl.Move(moveDir * Time.fixedDeltaTime);
     }*/
+    void Jump()
+    {
+        if (_jumpRequest && !_wallContact)
+        {
+            _moveDir.y = JumpVelocity;
+            _jumpRequest = false;
+        }
+        if (_jumpRequest && _wallContact)
+        {
+            if (_fDetect)
+            {
+                _moveDir.y = JumpVelocity;
+                _moveDir.z = -JumpVelocity;
+            }
+            if (_lDetect)
+            {
+                _moveDir.y = JumpVelocity;
+                _moveDir.x = -JumpVelocity;
+            }
+            if (_rDetect)
+            {
+                _moveDir.y = JumpVelocity;
+                _moveDir.x = JumpVelocity;
+            }
+            
+        }
+    }
 
     void MovePlayer()
     {
         if (_charControl.isGrounded || (_wallContact ))
         {
-            //Debug.Log("Jump" + jumpRequest);
-            _moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            _moveDir = transform.TransformDirection(_moveDir);
-            _moveDir *= WalkSpeed;
+            if (_charControl.isGrounded)
+            {
+                //Debug.Log("Jump" + jumpRequest);
+                _moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                _moveDir = transform.TransformDirection(_moveDir);
+                _moveDir *= WalkSpeed;
+            }
+            //Jump();
             if (_jumpRequest)
             {
                 _moveDir.y = JumpVelocity;
                 _jumpRequest = false;
             }
-            _fDetect = false;
-            _lDetect = false;
-            _rDetect = false;
-            
-            _climbDecay = 0;
+            if (_charControl.isGrounded)
+            {
+                _fDetect = false;
+                _lDetect = false;
+                _rDetect = false;
+
+                _climbDecay = 0;
+            }
         }
         
         Parcore();
         
-        if (_moveDir.y < 0.2)
+        if (_moveDir.y < 0.2) //Long Jump
         {
             _moveDir += Vector3.up * Physics.gravity.y * (FallMultiplier - 1) * Time.deltaTime;
             //Debug.Log("Long" + _fDetect);
         }
-        else if (_moveDir.y > 0.2 && !Input.GetButton("Jump"))
+        else if (_moveDir.y > 0.2 && !Input.GetButton("Jump")) //Short Jump
         {
             _moveDir += Vector3.up * Physics.gravity.y * (LowJumpMultiplier - 1) * Time.deltaTime;
             //Debug.Log("short"+ _fDetect);
@@ -125,27 +163,14 @@ public class PlayerControler : MonoBehaviour
             _moveDir.y = _climbVelocity - _climbDecay;
             _wallContact = true;
         }
-        else if(!_fDetect)
-        {
-            _wallContact = false;
-        }
         if (_lDetect)
         {
             _moveDir.y = _climbVelocity/2 - _climbDecay;
-            _wallContact = true;
-        }
-        else if(!_lDetect)
-        {
-            _wallContact = false;
+
         }
         if (_rDetect)
         {
             _moveDir.y = _climbVelocity/2 -_climbDecay;
-            _wallContact = true;
-        }
-        else if(!_rDetect)
-        {
-            _wallContact = false;
         }
     }
 
