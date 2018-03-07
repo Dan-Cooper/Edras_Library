@@ -81,14 +81,21 @@ public class PlayerControler : MonoBehaviour
         }
         if (_jumpRequest && _wallContact)
         {
-            /*if(F)
-            {}
-            if (L)
+            if (_fDetect)
             {
+                _moveDir.y = JumpVelocity;
+                _moveDir.z = -JumpVelocity;
             }
-            if (R)
+            if (_lDetect)
             {
-            }*/
+                _moveDir.y = JumpVelocity;
+                _moveDir.x = -JumpVelocity;
+            }
+            if (_rDetect)
+            {
+                _moveDir.y = JumpVelocity;
+                _moveDir.x = JumpVelocity;
+            }
             
         }
     }
@@ -104,6 +111,7 @@ public class PlayerControler : MonoBehaviour
                 _moveDir = transform.TransformDirection(_moveDir);
                 _moveDir *= WalkSpeed;
             }
+            //Jump();
             if (_jumpRequest)
             {
                 _moveDir.y = JumpVelocity;
