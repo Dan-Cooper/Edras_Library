@@ -89,7 +89,7 @@ public class PlayerControler : MonoBehaviour
         if (_moveDir.y < 0.2)
         {
             _moveDir += Vector3.up * Physics.gravity.y * (FallMultiplier - 1) * Time.deltaTime;
-            Debug.Log("Long" + _fDetect);
+//            Debug.Log("Long" + _fDetect);		// I had to comment this out.
         }
         else if (_moveDir.y > 0.2 && !Input.GetButton("Jump"))
         {
