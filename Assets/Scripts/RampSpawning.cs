@@ -5,65 +5,113 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RampSpawning : MonoBehaviour {
-	public GameObject ramp;
-	public GameObject rampGuideObj;
-	public Transform playerTransform;
-	public Transform cameraTransform;	//unused?
-	public Transform whereRampSpawns;
+
 	public int maxRamps;
 
+	[Header("Size should be the same integars.")]
+	public int arraySize;
+	public GameObject[] ramp;
+	public GameObject[] rampGuideObj;
+
+	[Space]
+
+	public Transform whereRampSpawns;
+	private Transform playerTransform;
 	private GameObject guideInst;
 
-//	public int rampTag;
-	/*	0 = platform spawning disabled
-	 *	1 = spawn ramp
-	 *	2 = spawn floor
-	 *	3 = spawn wall
-	 *	4 = spawn lift
-	 *	any other # = error
-	*/
+	[Space]
 
-	[SerializeField]
-	private int currentRamps;
-	[SerializeField]
+	[Header("Variables below only used for")]
+	[Header("    reference")]	// They will be reset at Start()
+	public bool rampEnable;
+//	[SerializeField]	
 	private bool prepareRamp;
+//	[SerializeField]	
+	private int rampTag;	// for the array
+//	[SerializeField]	
+	private int currentRamps;
 
 	void Start () {
+		playerTransform = GetComponent<Transform>();
+		rampEnable = true;
 		prepareRamp = false;
+		rampTag = 0;
+		currentRamps = 0;
 	}
+
 	
 	void Update () {
-		if (Input.GetButtonDown("Summon")){
+		if(rampEnable){
+			//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 
-			if (prepareRamp) {
-				// then delete rampGuide instance
-				Destroy(guideInst);
-//				rampInst =
-				Instantiate(ramp
-					, whereRampSpawns.position
-					, playerTransform.rotation
-				);
+			if (Input.GetButtonDown("Summon Plat")){
 
-				prepareRamp = false;
-				Debug.Log("Is prepareRamp false? " + prepareRamp);
+		
+				if (prepareRamp) {
+
+					Destroy(guideInst);	// deletes rampGuide instance
+										// assigned in the "else if" below
+	//				rampInst =
+
+					//	if not cancelled or switched
+					Instantiate(ramp[rampTag]
+						, whereRampSpawns.position
+						, playerTransform.rotation
+					);
+					// "if switched" go here
+					// "if cancellled" go here
+
+					prepareRamp = false;
+				}
+				else if((currentRamps < maxRamps) && !prepareRamp){
+					guideInst = 
+						Instantiate(rampGuideObj[rampTag]
+							, whereRampSpawns.position
+							, playerTransform.rotation
+							, playerTransform
+						);
+
+					currentRamps += 1;
+					prepareRamp = true;
+				}
+
+				else {
+					Debug.Log("CN: Some ramp spawning error.");
+				}
+
 			}
-			else if((currentRamps < maxRamps) && !prepareRamp){
-				Debug.Log("get button successs!");
-				guideInst = 
-				Instantiate(rampGuideObj
-					, whereRampSpawns.position
-					, playerTransform.rotation
-					, playerTransform
-				);
 
-				currentRamps += 1;
-				prepareRamp = true;
-				Debug.Log("Is prepareRamp true? " + prepareRamp);
+			if(Input.GetButtonDown("Switch Plat")){
+				// assign ramp# based on rampTag
+				if(rampTag>=0 && rampTag < arraySize-1){
+					rampTag +=1;
+				}
+				else if(rampTag == arraySize-1){
+					rampTag = 0;
+				}
+				else{
+					Debug.Log("Error.");
+				}
+
+				if(prepareRamp){
+					Destroy(guideInst);
+					guideInst =
+						Instantiate(rampGuideObj[rampTag]
+							, whereRampSpawns.position
+							, playerTransform.rotation
+							, playerTransform
+						);
+				}
 			}
 
-
-
+			//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^			
 		}
+
+		else {	//	When ramp spawning is disabled.
+			Debug.Log("CN: Ramp spawning disabled. :3");
+		}
+
+
 
 
 	}
