@@ -1,4 +1,4 @@
-﻿﻿//	Instructions for level designers :D
+﻿//	Instructions for level designers :D
 //	from Cathy
 
 using System.Collections;
@@ -10,8 +10,6 @@ public class WhereRampSpawnsInfo : MonoBehaviour {
 	[Header("Transform position z = ")]
 	[Header("      the distance between you and")]
 	[Header("      the ramp")]
-	[Space]
-	[Header("Don't change anything else.")]
 	[Space]
 	public string dummyVariable;
 
