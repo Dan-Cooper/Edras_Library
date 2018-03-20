@@ -154,11 +154,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0add4028de12c3544a1c33d66fb6100f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
-  jumpVelocity: 8
-  gravity: 10
-  fallMultiplier: 4
-  lowJumpMultiplier: 2
+  WalkSpeed: 1
+  JumpVelocity: 10
+  Gravity: 100
+  FallMultiplier: 0
+  LowJumpMultiplier: 0
+  _climbVelocity: 0
+  _climbDecay: 0
 --- !u!124 &124900764074637050
 Behaviour:
   m_ObjectHideFlags: 1
