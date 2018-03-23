@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33473009956453968}
   - component: {fileID: 23276737091412644}
   - component: {fileID: 95210220285712462}
-  - component: {fileID: 65426116729625858}
+  - component: {fileID: 65585428285207812}
   m_Layer: 0
   m_Name: Basic_Wall_Block_Unity_Measurments_Thin_Wall
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1418821259541660}
   m_Mesh: {fileID: 4300000, guid: 8634a645add7cee4f927806554cb8aa5, type: 3}
---- !u!65 &65426116729625858
+--- !u!65 &65585428285207812
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
