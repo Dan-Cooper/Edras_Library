@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4272836789945886}
-  - component: {fileID: 114552665314945060}
+  - component: {fileID: 114415559512992096}
   m_Layer: 0
   m_Name: TEMP-Owl
   m_TagString: Untagged
@@ -88,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1585362877378704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.521, y: 16.730528, z: -34.35}
+  m_LocalPosition: {x: 10.65, y: 0.07, z: -12.51}
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children:
   - {fileID: 4511196650491536}
@@ -150,12 +150,12 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 58028c1673390794c9e566ad69092842, type: 3}
+  - {fileID: 2100000, guid: c693677a2f2ec2d4ebf3c80981eddf28, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 400000, guid: 58028c1673390794c9e566ad69092842, type: 3}
+  m_ProbeAnchor: {fileID: 400000, guid: c693677a2f2ec2d4ebf3c80981eddf28, type: 3}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
@@ -184,12 +184,12 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 58028c1673390794c9e566ad69092842, type: 3}
+  - {fileID: 2100000, guid: c693677a2f2ec2d4ebf3c80981eddf28, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 400002, guid: 58028c1673390794c9e566ad69092842, type: 3}
+  m_ProbeAnchor: {fileID: 400002, guid: c693677a2f2ec2d4ebf3c80981eddf28, type: 3}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
@@ -210,14 +210,14 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008831826449234}
-  m_Mesh: {fileID: 4300000, guid: 58028c1673390794c9e566ad69092842, type: 3}
+  m_Mesh: {fileID: 4300000, guid: c693677a2f2ec2d4ebf3c80981eddf28, type: 3}
 --- !u!33 &33386865805478072
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1958136811230820}
-  m_Mesh: {fileID: 4300002, guid: 58028c1673390794c9e566ad69092842, type: 3}
+  m_Mesh: {fileID: 4300002, guid: c693677a2f2ec2d4ebf3c80981eddf28, type: 3}
 --- !u!54 &54507435092784910
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -270,7 +270,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.03
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -291,12 +291,12 @@ Light:
     m_Bits: 4294967295
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114552665314945060
+--- !u!114 &114415559512992096
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -304,13 +304,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1585362877378704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72763d06613e5fa409602255eded95b7, type: 3}
+  m_Script: {fileID: 11500000, guid: cc68f8d8d075cda4f8c2700808db9ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   _head: {fileID: 1008831826449234}
   _body: {fileID: 1958136811230820}
   _light: {fileID: 1790006562967508}
+  Range: 10
+  Speed: 1
 --- !u!136 &136740896142418476
 CapsuleCollider:
   m_ObjectHideFlags: 1

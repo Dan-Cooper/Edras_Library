@@ -63,11 +63,12 @@ public class Turret : MonoBehaviour
 
 		float angle = Mathf.Atan2(lookAt.y, lookAt.x) * Mathf.Rad2Deg;
 		
-		Quaternion rotateion = Quaternion.AngleAxis(-angle, Vector3.down);
+		//Quaternion rotateion = Quaternion.AngleAxis(-angle, Vector3.down);
+		Vector3 rotateion = Quaternion.Lerp(_head.GetComponent<Transform>().rotation, lookAt, Speed * Time.deltaTime).eulerAngles;
 		
 		Debug.Log(lookAt + " : " + angle);
-		
-		_head.transform.rotation = Quaternion.Slerp(_head.transform.rotation, rotateion, Speed * Time.deltaTime);
-		
+		_head.GetComponent<Transform>().rotation = Quaternion.Euler(0f, rotateion.y, 0f);
+		//_head.transform.rotation = Quaternion.Slerp(_head.transform.rotation, rotateion, Speed * Time.deltaTime);
+
 	}
 }
