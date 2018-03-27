@@ -12,6 +12,8 @@ public class Turret : MonoBehaviour
 	[SerializeField]private GameObject _body;
 	[SerializeField]private GameObject _light; 	//Used for Debug
 	private RaycastHit _hit;					//Array of objects in the SphereCast
+	public float Range = 10;
+	public float Speed = 1;
 	
 	
 	// Use this for initialization
@@ -22,15 +24,15 @@ public class Turret : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Detect()) Track();; //Debug.Log("Found Player");
+		if (Detect()) Track(); //Debug.Log("Found Player");
 
 		if (true)
 		{
 			Vector3 headpos = _head.transform.position;
-			Vector3 detection = _head.transform.forward*10;
+			Vector3 detection = _head.transform.forward * Range;
 			Debug.DrawRay(headpos, detection, Color.magenta); //Mid Forword
-			if(_hit.distance <=10) Debug.DrawRay(headpos, Player.transform.position - headpos,Color.red, 0.1f);
-			if(_hit.distance >=10) Debug.DrawRay(headpos, Player.transform.position - headpos,Color.green);
+			if(_hit.distance <= Range) Debug.DrawRay(headpos, Player.transform.position - headpos,Color.red, 0.1f);
+			if(_hit.distance >= Range) Debug.DrawRay(headpos, Player.transform.position - headpos,Color.green);
 			//Debug.DrawRay(_head.GetComponent<Transform>().position, _head.GetComponent<Rigidbody>().position+ new Vector3(5,0,0), Color.green);
 			//Debug.DrawRay(detection, Player.transform.position, Color.magenta); //Mid Forword
 		}
@@ -41,63 +43,32 @@ public class Turret : MonoBehaviour
 		Physics.Raycast(_head.transform.position, Player.transform.position - _head.transform.position, out _hit);
 		//Debug.Log("Distince = "+ (int) _hit.distance);
 
-		if (_hit.distance <= 10) return true;
-		
-		return false;
-		
-		
-		/*//TODO Erase old Spherecast info if all is working.
-		//_hits = Physics.SphereCastAll(_head.GetComponent<Transform>().position, 5f, _head.GetComponent<Transform>().position);	//Shoots a ray sphere out to 10 unity units and returns a Raycast hit.
-			
-		//int i = 0;
-		foreach (var hit in _hits)
+		if (_hit.distance <= Range)
 		{
-			if (hit.transform.CompareTag(Player.tag))
-			{
-				Debug.Log("Distince = "+ (int) hit.distance);
-				return true;
-			}
-			//Debug.Log("Detect Loop " + i);
-			//i++;
+			_light.GetComponent<Light>().color = new Color(255,0,0,255);//TODO Add componet to wake/sleep funtion
+			return true;
 		}
-*/
+
+		else
+		{
+			_light.GetComponent<Light>().color = new Color(255, 255, 255, 255);//TODO Add componet to wake/sleep funtion
+			return false;
+		}
 
 	}
 
-	void Track()
+	void Track() //TODO fix angle of head.
 	{
-		_head.transform.LookAt(Player.transform.position, _head.transform.up);//TODO slow sweep to target.
-		
-		_head.transform.localRotation = new Quaternion(_head.transform.localRotation.x, 0, _head.transform.localRotation.z ,0); //TODO Head upside down fix.
-		/*float x;
-		float y;
-
 		Quaternion lookAt = Quaternion.LookRotation(_hit.point - _head.transform.position);
-		
-		Debug.Log(lookAt + " : " + _head.transform.rotation);
-		
-		_head.transform.Rotate(lookAt.eulerAngles);*/
-		
-		//Quaternion.Slerp(_head.transform.rotation, lookAt, 0.1f);
 
-		//_head.transform.Rotate((Player.transform.position - _head.transform) * Time.deltaTime);
-
-		/*Vector3 targetRotBody = _head.transform.rotation.eulerAngles;
+		float angle = Mathf.Atan2(lookAt.y, lookAt.x) * Mathf.Rad2Deg;
 		
-
-		Vector3 PlayerPos = Player.GetComponent<Transform>().position;
-		Debug.Log(PlayerPos);
-
-		Vector3 TurretPos = _head.GetComponent<Transform>().position;
-		Debug.Log(TurretPos);
-
-		x = PlayerPos.x - TurretPos.x;
-		y = PlayerPos.y - TurretPos.y;
+		//Quaternion rotateion = Quaternion.AngleAxis(-angle, Vector3.down);
+		Vector3 rotateion = Quaternion.Lerp(_head.GetComponent<Transform>().rotation, lookAt, Speed * Time.deltaTime).eulerAngles;
 		
-		targetRotBody.y += y;
-		
-		Debug.Log("X: "+x+" Y: "+y);
-		_head.GetComponent<Transform>().eulerAngles = new Vector3(x,y,0);
-		_head.transform.rotation = Quaternion.Euler(targetRotBody);*/
+		Debug.Log(lookAt + " : " + angle);
+		_head.GetComponent<Transform>().rotation = Quaternion.Euler(0f, rotateion.y, 0f);
+		//_head.transform.rotation = Quaternion.Slerp(_head.transform.rotation, rotateion, Speed * Time.deltaTime);
+
 	}
 }

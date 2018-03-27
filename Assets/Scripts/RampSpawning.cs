@@ -21,8 +21,9 @@ public class RampSpawning : MonoBehaviour {
 
 	[Space]
 
-	[Header("Variables below only used for")]
-	[Header("    reference")]	// They will be reset at Start()
+	[Header("Variables below used for enabling")]
+	[Header("    and disabling magic platform ")]
+	[Header("    spawning")]			// They will be reset at Start()
 	public bool rampEnable;
 //	[SerializeField]	
 	private bool prepareRamp;
