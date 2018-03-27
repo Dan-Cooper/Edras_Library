@@ -19,7 +19,10 @@ public class KillVolumeScript : MonoBehaviour {
 			//	reload scene for now
 			Scene scene = SceneManager.GetActiveScene();
 			SceneManager.LoadScene(scene.name);
-			Debug.Log("Ya deid.");
+			Debug.Log("Ya dun.");
+		}
+		else {
+			Debug.Log(other + "entered Kill Volume.");
 		}
 
 	}
