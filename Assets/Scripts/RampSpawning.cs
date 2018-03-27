@@ -59,6 +59,7 @@ public class RampSpawning : MonoBehaviour {
 						, whereRampSpawns.position
 						, playerTransform.rotation
 					);
+												// Ctrl + F add sound here
 					// "if switched" go here
 					// "if cancellled" go here
 
@@ -71,6 +72,7 @@ public class RampSpawning : MonoBehaviour {
 							, playerTransform.rotation
 							, playerTransform
 						);
+												// Ctrl + F add sound here
 
 					currentRamps += 1;
 					prepareRamp = true;
@@ -102,6 +104,7 @@ public class RampSpawning : MonoBehaviour {
 							, playerTransform.rotation
 							, playerTransform
 						);
+												// Ctrl + F add sound here
 				}
 			}
 

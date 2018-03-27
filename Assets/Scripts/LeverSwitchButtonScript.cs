@@ -38,6 +38,7 @@ public class LeverSwitchButtonScript : MonoBehaviour {
 		if(playerInputRequired){
 			if(isEnabled && Input.GetButtonDown("Switch Plat")){
 				isOn = !isOn;
+												// Ctrl + F add sound here
 				Debug.Log("isOn = " + isOn);
 				if(singleUse){
 					isEnabled = false;
