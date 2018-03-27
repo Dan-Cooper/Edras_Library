@@ -125,6 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4714903737096386}
   - component: {fileID: 95393110946206236}
+  - component: {fileID: 65361670248047116}
   m_Layer: 0
   m_Name: Edras_Table_Model
   m_TagString: Untagged
@@ -364,8 +365,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1450356392540280}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.695171, y: 0.5, z: -6.598104}
+  m_LocalRotation: {x: -0, y: -0, z: -0.030989805, w: 0.99951977}
+  m_LocalPosition: {x: -8.059101, y: 44.501255, z: -16.47}
   m_LocalScale: {x: 0.5, y: 0.48, z: 0.5}
   m_Children:
   - {fileID: 4728274442418990}
@@ -377,7 +378,7 @@ Transform:
   - {fileID: 4628896972697390}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -3.5520003}
 --- !u!4 &4728274442418990
 Transform:
   m_ObjectHideFlags: 1
@@ -460,6 +461,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1922227157942692}
   m_Mesh: {fileID: 4300000, guid: 394e3f61ae431874cb97bac0ac11920a, type: 3}
+--- !u!65 &65361670248047116
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1450356392540280}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.65, y: 1, z: 6.67}
+  m_Center: {x: 0, y: 3.58, z: 0}
 --- !u!95 &95393110946206236
 Animator:
   serializedVersion: 3
