@@ -22,8 +22,7 @@ public class Turret : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Detect()) ; //Debug.Log("Found Player");
-		Track();//TODO Nest in Detect if.
+		if (Detect()) Track();; //Debug.Log("Found Player");
 
 		if (true)
 		{
@@ -47,8 +46,8 @@ public class Turret : MonoBehaviour
 		return false;
 		
 		
-		//TODO Erase old Spherecast info if all is working.
-		/*//_hits = Physics.SphereCastAll(_head.GetComponent<Transform>().position, 5f, _head.GetComponent<Transform>().position);	//Shoots a ray sphere out to 10 unity units and returns a Raycast hit.
+		/*//TODO Erase old Spherecast info if all is working.
+		//_hits = Physics.SphereCastAll(_head.GetComponent<Transform>().position, 5f, _head.GetComponent<Transform>().position);	//Shoots a ray sphere out to 10 unity units and returns a Raycast hit.
 			
 		//int i = 0;
 		foreach (var hit in _hits)
@@ -67,15 +66,17 @@ public class Turret : MonoBehaviour
 
 	void Track()
 	{
+		_head.transform.LookAt(Player.transform.position, _head.transform.up);//TODO slow sweep to target.
 		
-		float x;
+		_head.transform.localRotation = new Quaternion(_head.transform.localRotation.x, 0, _head.transform.localRotation.z ,0); //TODO Head upside down fix.
+		/*float x;
 		float y;
 
 		Quaternion lookAt = Quaternion.LookRotation(_hit.point - _head.transform.position);
 		
 		Debug.Log(lookAt + " : " + _head.transform.rotation);
 		
-		_head.transform.Rotate(lookAt.eulerAngles);
+		_head.transform.Rotate(lookAt.eulerAngles);*/
 		
 		//Quaternion.Slerp(_head.transform.rotation, lookAt, 0.1f);
 
