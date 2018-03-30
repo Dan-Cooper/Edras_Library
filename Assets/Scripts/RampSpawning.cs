@@ -56,7 +56,7 @@ public class RampSpawning : MonoBehaviour {
 
 					//	if not cancelled or switched
 					Instantiate(ramp[rampTag]
-						, whereRampSpawns.position
+						, whereRampSpawns.position		// fix this
 						, playerTransform.rotation
 					);
 												// Ctrl + F add sound here
@@ -107,7 +107,13 @@ public class RampSpawning : MonoBehaviour {
 												// Ctrl + F add sound here
 				}
 			}
-
+			// ###############################################
+			if(prepareRamp){
+				guideInst.transform.position += new Vector3(0f, 0f,
+					Input.GetAxis("Mouse ScrollWheel")*10f);
+				Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
+			}
+			// ################################"Mouse ScrollWheel"
 			//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^			
 		}
 
