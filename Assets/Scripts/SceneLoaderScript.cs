@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoaderScript : MonoBehaviour
 {
-	[Header("The scene # in the build order.")] public int ThisLevleInt;
 
 	public bool OnPress;
 
@@ -16,7 +15,7 @@ public class SceneLoaderScript : MonoBehaviour
 	{
 		if (OnPress && Input.GetButton("Jump"))
 		{
-			SceneManager.LoadScene("MainMenu");
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
 
 		}
 	}
@@ -30,7 +29,7 @@ public class SceneLoaderScript : MonoBehaviour
 	{
 		if (!OnPress && _next)
 		{
-			SceneManager.LoadScene("MainMenu");
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
 		}
 	}
 
