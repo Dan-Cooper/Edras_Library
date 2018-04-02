@@ -213,6 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0add4028de12c3544a1c33d66fb6100f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Black: {fileID: 0}
+  TransitionSpeed: 1
   Ledge: {fileID: 1830340746508808, guid: ca0c91592e91c2846b8e897d0b10386d, type: 2}
   LedgeSpawned: 0
   WalkSpeed: 5
@@ -221,7 +223,6 @@ MonoBehaviour:
   FallMultiplier: 2
   LowJumpMultiplier: 4
   _climbVelocity: 10
-  _climbDecay: 0
 --- !u!114 &114808500990637636
 MonoBehaviour:
   m_ObjectHideFlags: 1
