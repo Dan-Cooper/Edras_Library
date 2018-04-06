@@ -166,7 +166,7 @@ Light:
     m_NormalBias: 0.307
     m_NearPlane: 0.59
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
+  m_DrawHalo: 1
   m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:

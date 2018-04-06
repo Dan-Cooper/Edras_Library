@@ -87,8 +87,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1585362877378704}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -107.552574, y: 90.936, z: -140.05}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children:
   - {fileID: 4511196650491536}
@@ -312,7 +312,7 @@ MonoBehaviour:
   _body: {fileID: 1958136811230820}
   _light: {fileID: 1790006562967508}
   Range: 10
-  Speed: 6
+  Speed: 15
   Damage: 1
 --- !u!136 &136740896142418476
 CapsuleCollider:
