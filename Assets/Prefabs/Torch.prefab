@@ -181,9 +181,15 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
+<<<<<<< HEAD
   m_Color: {r: 0.53676474, g: 0.7124745, b: 1, a: 1}
   m_Intensity: 4
   m_Range: 25
+=======
+  m_Color: {r: 0.10542819, g: 0.9558824, b: 0.4632054, a: 1}
+  m_Intensity: 2.8
+  m_Range: 10
+>>>>>>> Austin
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
