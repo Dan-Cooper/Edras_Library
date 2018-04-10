@@ -7,6 +7,10 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour {
 	public Text m_health;
+	[Header("currentPlayerHealth is hidden,")]
+	[Header("      but still public")]
+	public int maxPlayerHealth;
+	[HideInInspector] public int currentPlayerHealth;
 	private PlayerControler playCon;
 
 	// Use this for initialization
