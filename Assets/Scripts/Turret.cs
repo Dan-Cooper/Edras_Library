@@ -11,7 +11,7 @@ public class Turret : MonoBehaviour
 	[SerializeField]private GameObject _head;
 	[SerializeField]private GameObject _body;
 	[SerializeField]private GameObject _light; 	//Used for Debug
-	private RaycastHit _hit;					//Array of objects in the SphereCast
+	private RaycastHit _hit;					//
 	private RaycastHit _fire;
 	public float Range = 10;
 	public float Speed = 1;
