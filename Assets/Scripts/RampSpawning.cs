@@ -7,6 +7,8 @@ using UnityEngine;
 public class RampSpawning : MonoBehaviour {
 
 	public int maxRamps;
+	public float minDistance = 3f;
+	public float maxDistance = 15f;
 
 	[Header("Size should be the same integars.")]
 	public int arraySize;
@@ -56,9 +58,10 @@ public class RampSpawning : MonoBehaviour {
 
 					//	if not cancelled or switched
 					Instantiate(ramp[rampTag]
-						, whereRampSpawns.position
+						, guideInst.transform.position
 						, playerTransform.rotation
 					);
+												// Ctrl + F add sound here
 					// "if switched" go here
 					// "if cancellled" go here
 
@@ -71,6 +74,7 @@ public class RampSpawning : MonoBehaviour {
 							, playerTransform.rotation
 							, playerTransform
 						);
+												// Ctrl + F add sound here
 
 					currentRamps += 1;
 					prepareRamp = true;
@@ -102,9 +106,24 @@ public class RampSpawning : MonoBehaviour {
 							, playerTransform.rotation
 							, playerTransform
 						);
+												// Ctrl + F add sound here
 				}
 			}
+			// ###############################################
+			if(prepareRamp){
+				guideInst.transform.localPosition += new Vector3(0f, 0f,
+					Input.GetAxis("Mouse ScrollWheel")*10f);
+				
+				if(guideInst.transform.localPosition.z <= minDistance){	// minimum distance from player
+					guideInst.transform.localPosition = new Vector3(0f,0f,minDistance);
+				}
+				if(guideInst.transform.localPosition.z >= maxDistance){	// maximum distance from player
+					guideInst.transform.localPosition = new Vector3(0f,0f,maxDistance);
+				}
 
+				Debug.Log(guideInst.transform.localPosition);
+			}
+			// ################################"Mouse ScrollWheel"
 			//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^			
 		}
 
