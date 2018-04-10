@@ -71,8 +71,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1157457145293816}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.08, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4629318888605354}
@@ -173,6 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRamps: 20
+  minDistance: 3
+  maxDistance: 15
   arraySize: 6
   ramp:
   - {fileID: 1434565839537354, guid: 60ab7c7c8eefee84b916cf10e45b11dc, type: 2}
@@ -213,8 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0add4028de12c3544a1c33d66fb6100f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Black: {fileID: 0}
-  TransitionSpeed: 1
   Ledge: {fileID: 1830340746508808, guid: ca0c91592e91c2846b8e897d0b10386d, type: 2}
   LedgeSpawned: 0
   WalkSpeed: 5
@@ -223,6 +223,7 @@ MonoBehaviour:
   FallMultiplier: 2
   LowJumpMultiplier: 4
   _climbVelocity: 10
+  _climbDecay: 0
 --- !u!114 &114808500990637636
 MonoBehaviour:
   m_ObjectHideFlags: 1

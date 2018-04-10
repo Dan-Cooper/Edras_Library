@@ -1,13 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerControler : MonoBehaviour
 {
     private CharacterController _charControl;
-
-    public Image Black;
-
-    public float TransitionSpeed;
     //private Rigidbody rb;
 
     public GameObject Ledge;
@@ -23,8 +18,6 @@ public class PlayerControler : MonoBehaviour
     public float FallMultiplier;
     public float LowJumpMultiplier;
 
-    private int _health = 100;
-
     private bool _jumpRequest;
     private Vector3 _moveDir = new Vector3(0,0,0);
 
@@ -35,19 +28,20 @@ public class PlayerControler : MonoBehaviour
     private bool _wallContact;
 
    [SerializeField] private float _climbVelocity;
-   private float _climbDecay;
-
-    private bool _dead;
+   [SerializeField] private float _climbDecay;
 
     // Use this for initialization
     void Awake()
     {
         _charControl = GetComponent<CharacterController>();
+        //rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //if (Input.GetKeyDown(KeyCode.P))  LedgeSpawned = false; //used for debuging ledge spawning
+        
         ParcoreDetetion();
 
         if (Input.GetButtonDown("Jump") && _charControl.isGrounded) _jumpRequest = true;
@@ -62,11 +56,22 @@ public class PlayerControler : MonoBehaviour
             _climbDecay += Mathf.Lerp(0,8,(Time.deltaTime / 1f));
         }
 
-        if(!_dead)MovePlayer();
-        else Black.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, TransitionSpeed * Time.deltaTime);
+        MovePlayer();
     }
 
-    //ForWallJump Not used for build
+/*// Was used in simplemove might bring back.
+    void FixedUpdate()
+    {
+        if (jumpRequest)
+        {
+            Debug.Log("JR" + jumpVelocity);
+            moveDir.y = jumpVelocity;
+            jumpRequest = false;     
+        }
+        fDetect = false;
+        //moveDir.y -= gravity * Time.fixedDeltaTime;
+        //charControl.Move(moveDir * Time.fixedDeltaTime);
+    }*/
     void Jump()
     {
         if (_jumpRequest && !_wallContact)
@@ -97,7 +102,7 @@ public class PlayerControler : MonoBehaviour
 
     void MovePlayer()
     {
-        if (_charControl.isGrounded || _wallContact)
+        if (_charControl.isGrounded || (_wallContact ))
         {
             if (_charControl.isGrounded)
             {
@@ -205,16 +210,6 @@ public class PlayerControler : MonoBehaviour
 
             Debug.DrawRay(transform.position, mRgt, Color.green); //Mid Right
             Debug.DrawRay(transform.position + new Vector3(0, 1.5f, 0), mRgt, Color.green); //High Right
-        }
-    }
-
-    public void Damage(int value)
-    {
-        _health -= value;
-        if (_health <= 0)
-        {
-            Debug.Log("Dead");
-            _dead = true;
         }
     }
 }
