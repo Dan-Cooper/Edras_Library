@@ -46,25 +46,19 @@ public class RampSpawning : MonoBehaviour {
 	void Update () {
 		if(rampEnable){
 			//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-
+			// Inputs: "Summon Plat", "Switch Plat", "Mouse ScrollWheel", ""
 			if (Input.GetButtonDown("Summon Plat")){
 
 		
 				if (prepareRamp) {
 
 					Destroy(guideInst);	// deletes rampGuide instance
-										// assigned in the "else if" below
-	//				rampInst =
 
-					//	if not cancelled or switched
 					Instantiate(ramp[rampTag]
 						, guideInst.transform.position
 						, playerTransform.rotation
 					);
 												// Ctrl + F add sound here
-					// "if switched" go here
-					// "if cancellled" go here
-
 					prepareRamp = false;
 				}
 				else if((currentRamps < maxRamps) && !prepareRamp){
@@ -115,13 +109,21 @@ public class RampSpawning : MonoBehaviour {
 					Input.GetAxis("Mouse ScrollWheel")*10f);
 				
 				if(guideInst.transform.localPosition.z <= minDistance){	// minimum distance from player
-					guideInst.transform.localPosition = new Vector3(0f,0f,minDistance);
+					guideInst.transform.localPosition = 
+						new Vector3(0f,whereRampSpawns.position.y,minDistance);
 				}
 				if(guideInst.transform.localPosition.z >= maxDistance){	// maximum distance from player
-					guideInst.transform.localPosition = new Vector3(0f,0f,maxDistance);
+					guideInst.transform.localPosition = 
+						new Vector3(0f,whereRampSpawns.position.y,maxDistance);
 				}
 
 				Debug.Log(guideInst.transform.localPosition);
+
+				if(Input.GetButtonDown("Undo Summon")){
+					Destroy(guideInst);
+					prepareRamp = false;
+				}
+
 			}
 			// ################################"Mouse ScrollWheel"
 			//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^			
