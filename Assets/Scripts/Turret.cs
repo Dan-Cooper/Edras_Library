@@ -12,10 +12,8 @@ public class Turret : MonoBehaviour
 	[SerializeField]private GameObject _body;
 	[SerializeField]private GameObject _light; 	//Used for Debug
 	private RaycastHit _hit;					//Array of objects in the SphereCast
-	private RaycastHit _fire;
 	public float Range = 10;
 	public float Speed = 1;
-	public int Damage = 1;
 	
 	
 	// Use this for initialization
@@ -26,11 +24,7 @@ public class Turret : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Detect()) 
-		{
-			Track(); 
-			Fire();
-		}
+		if (Detect()) Track(); //Debug.Log("Found Player");
 
 		if (true)
 		{
@@ -63,21 +57,18 @@ public class Turret : MonoBehaviour
 
 	}
 
-	void Track()
+	void Track() //TODO fix angle of head.
 	{
-		Quaternion lookAt = Quaternion.LookRotation(_hit.point - _head.transform.position); //Gets the pos to look at
-		Vector3 rotateion = Quaternion.Lerp(_head.GetComponent<Transform>().rotation, lookAt, Speed * Time.deltaTime).eulerAngles; //Sets the actual rotation and speed of turn
-		_head.GetComponent<Transform>().rotation = Quaternion.Euler(rotateion.x, rotateion.y, 0f); //Applies effetc to the head.
+		Quaternion lookAt = Quaternion.LookRotation(_hit.point - _head.transform.position);
 
-	}
+		float angle = Mathf.Atan2(lookAt.y, lookAt.x) * Mathf.Rad2Deg;
+		
+		//Quaternion rotateion = Quaternion.AngleAxis(-angle, Vector3.down);
+		Vector3 rotateion = Quaternion.Lerp(_head.GetComponent<Transform>().rotation, lookAt, Speed * Time.deltaTime).eulerAngles;
+		
+		Debug.Log(lookAt + " : " + angle);
+		_head.GetComponent<Transform>().rotation = Quaternion.Euler(0f, rotateion.y, 0f);
+		//_head.transform.rotation = Quaternion.Slerp(_head.transform.rotation, rotateion, Speed * Time.deltaTime);
 
-	void Fire()
-	{
-		Physics.Raycast(_head.transform.position, _head.transform.forward, out _fire);
-
-		if (_fire.collider.tag.Equals("Player"))
-		{
-			Player.GetComponent<PlayerControler>().Damage(Damage);
-		}
 	}
 }
