@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4871323670910652}
   - component: {fileID: 114496748855125408}
-  - component: {fileID: 54638872519549692}
+  - component: {fileID: 114509640025012068}
   m_Layer: 0
   m_Name: MovingPlatformSet
   m_TagString: Untagged
@@ -37,10 +37,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4662711996447870}
   - component: {fileID: 114598391151336356}
-  - component: {fileID: 114526883039106610}
   - component: {fileID: 33518660716296704}
   - component: {fileID: 65476197491018410}
   - component: {fileID: 23729990844856216}
+  - component: {fileID: 54690666483265694}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Moving Platform
@@ -58,7 +58,6 @@ GameObject:
   - component: {fileID: 4249051112752030}
   - component: {fileID: 114121964108713440}
   - component: {fileID: 54241606850737644}
-  - component: {fileID: 65804134864433800}
   m_Layer: 0
   m_Name: EndPoint
   m_TagString: Untagged
@@ -163,17 +162,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!54 &54638872519549692
+--- !u!54 &54690666483265694
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1715202567726968}
+  m_GameObject: {fileID: 1760252600220652}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -187,18 +186,6 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65804134864433800
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1862734326669930}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -226,22 +213,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dummyVariable: dummy script
---- !u!114 &114526883039106610
+--- !u!114 &114509640025012068
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1760252600220652}
+  m_GameObject: {fileID: 1715202567726968}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afad6dd95f6678a4793e9f37288fdc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rbStart: {fileID: 54638872519549692}
-  rbEnd: {fileID: 54241606850737644}
-  speed: 10
-  waitTime: 0
-  goingBack: 0
+  platRb: {fileID: 54690666483265694}
+  endPoint: {fileID: 4249051112752030}
+  speed: 20
+  goInDirectionForSeconds: 1
 --- !u!114 &114598391151336356
 MonoBehaviour:
   m_ObjectHideFlags: 1

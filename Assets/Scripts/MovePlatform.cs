@@ -5,57 +5,99 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MovePlatform : MonoBehaviour {
-	public Rigidbody rbStart;
-	public Rigidbody rbEnd;	// EndPlatform will move with parent gameobject after Start function
+	
+	[Header("Remember to freeze rotation!")]
+	public Rigidbody platRb;	// remember to freeze rotaion
+
+	[Header("Just tells the direction to go.")]
+	public Transform endPoint;	//tells direction
+	private Vector3 endPointVector;
 
 	public float speed;
-	[Tooltip("wait time is in seconds")]
-	public float waitTime;
-	private float moveTime;
+	public int goInDirectionForSeconds;
+	private int platTime;
 
-	[SerializeField]
-	private bool goingBack;
+	private bool goForward;
+
 
 	void Start () {
-		moveTime = speed;
-		goingBack = false;
-		Debug.Log("moveTime = " + moveTime);
-
+		goForward = true;
+		platTime = 1;	// not 0, so it doesn't trigger at beginning
+		endPointVector = endPoint.position.normalized;
 	}
 
 	void FixedUpdate () {
-		StartCoroutine(PlatformNowMove());
+		platTime += 1;
+
+		if(platTime <= 0) {	// with <= failsafe
+			goForward = true;
+		}
+		else if(platTime >= goInDirectionForSeconds*60) {	// with >= failsafe
+			goForward = false;
+		}
+
+		if(goForward) {
+			platRb.velocity = speed*endPointVector;
+		}
+		else if(!goForward) {
+			platRb.velocity = -speed*endPointVector;
+		}
+
 	}
 
-	IEnumerator PlatformNowMove() {
-        if (!goingBack) {
-            transform.position = Vector3.MoveTowards(transform.position, rbEnd.position,
-                speed * Time.deltaTime);
-//			yield return new WaitUntil( () => rb.velocity == Vector3.zero);
-			yield return new WaitForSecondsRealtime(moveTime + waitTime*Time.deltaTime);
-			goingBack = true;
-        }
-        else if (goingBack) {
-            transform.position = Vector3.MoveTowards(transform.position, rbStart.position,
-                speed * Time.deltaTime);
-//			yield return new WaitUntil( () => rb.velocity == Vector3.zero);
-			yield return new WaitForSecondsRealtime(moveTime + waitTime);
-			goingBack = false;
-        }
-    }
-
-	void OnCollisionEnter(Collision coll){
-		Debug.Log("err 1a");
-		if (coll.gameObject.tag == "Player") {
-			coll.transform.parent = gameObject.transform;
-			Debug.Log("err 1b");
-		}
-	}
-	void OnCollisionExit(Collision coll){
-		Debug.Log("err 2a");
-		if (coll.gameObject.tag == "Player") {
-			coll.transform.parent = null;
-			Debug.Log("err 2b");
-		}
-	}
 }
+
+//	public Rigidbody rbStart;
+//	public Rigidbody rbEnd;	// EndPlatform will move with parent gameobject after Start function
+//
+//	public float speed;
+//	[Tooltip("wait time is in seconds")]
+//	public float waitTime;
+//	private float moveTime;
+//
+//	[SerializeField]
+//	private bool goingBack;
+//
+//	void Start () {
+//		moveTime = speed;
+//		goingBack = false;
+//		Debug.Log("moveTime = " + moveTime);
+//
+//	}
+//
+//	void FixedUpdate () {
+//		StartCoroutine(PlatformNowMove());
+//	}
+//
+//	IEnumerator PlatformNowMove() {
+//        if (!goingBack) {
+//            transform.position = Vector3.MoveTowards(transform.position, rbEnd.position,
+//                speed * Time.deltaTime);
+////			yield return new WaitUntil( () => rb.velocity == Vector3.zero);
+//			yield return new WaitForSecondsRealtime(moveTime + waitTime*Time.deltaTime);
+//			goingBack = true;
+//        }
+//        else if (goingBack) {
+//            transform.position = Vector3.MoveTowards(transform.position, rbStart.position,
+//                speed * Time.deltaTime);
+////			yield return new WaitUntil( () => rb.velocity == Vector3.zero);
+//			yield return new WaitForSecondsRealtime(moveTime + waitTime);
+//			goingBack = false;
+//        }
+//    }
+//
+//	void OnCollisionEnter(Collision coll){
+//		Debug.Log("err 1a");
+//		if (coll.gameObject.tag == "Player") {
+//			coll.transform.parent = gameObject.transform;
+//			Debug.Log("err 1b");
+//		}
+//	}
+//	void OnCollisionExit(Collision coll){
+//		Debug.Log("err 2a");
+//		if (coll.gameObject.tag == "Player") {
+//			coll.transform.parent = null;
+//			Debug.Log("err 2b");
+//		}
+//	}
+
