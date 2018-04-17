@@ -117,7 +117,7 @@ public class RampSpawning : MonoBehaviour {
 						new Vector3(0f,whereRampSpawns.position.y,maxDistance);
 				}
 
-				Debug.Log(guideInst.transform.localPosition);
+//				Debug.Log(guideInst.transform.localPosition);
 
 				if(Input.GetButtonDown("Undo Summon")){
 					Destroy(guideInst);
