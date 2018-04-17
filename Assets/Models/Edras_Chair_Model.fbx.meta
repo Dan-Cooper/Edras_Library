@@ -1,44 +1,58 @@
 fileFormatVersion: 2
 guid: 1dba47e1d3aabf14fa67c9b8e6435e1a
-timeCreated: 1520363528
+timeCreated: 1523925529
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: group
-    100004: pasted__pCube10
-    100006: pasted__pCube11
-    100008: pasted__pCube12
-    100010: pasted__pCube13
-    100012: pasted__pCube13 1
-    100014: pasted__pCube8
-    100016: pasted__pCube9
-    100018: pasted__transform10
-    100020: pasted__transform7
-    100022: pasted__transform8
-    100024: pasted__transform9
-    100026: transform1
-    100028: transform2
+    100002: pCube1
+    100004: pCube10
+    100006: pCube11
+    100008: pCube2
+    100010: pCube3
+    100012: pCube4
+    100014: pCube5
+    100016: pCube6
+    100018: pCube7
+    100020: pCube8
+    100022: pCube9
+    100024: transform10
+    100026: transform11
+    100028: transform12
+    100030: transform3
+    100032: transform4
+    100034: transform5
+    100036: transform6
+    100038: transform7
+    100040: transform8
+    100042: transform9
     400000: //RootNode
-    400002: group
-    400004: pasted__pCube10
-    400006: pasted__pCube11
-    400008: pasted__pCube12
-    400010: pasted__pCube13
-    400012: pasted__pCube13 1
-    400014: pasted__pCube8
-    400016: pasted__pCube9
-    400018: pasted__transform10
-    400020: pasted__transform7
-    400022: pasted__transform8
-    400024: pasted__transform9
-    400026: transform1
-    400028: transform2
+    400002: pCube1
+    400004: pCube10
+    400006: pCube11
+    400008: pCube2
+    400010: pCube3
+    400012: pCube4
+    400014: pCube5
+    400016: pCube6
+    400018: pCube7
+    400020: pCube8
+    400022: pCube9
+    400024: transform10
+    400026: transform11
+    400028: transform12
+    400030: transform3
+    400032: transform4
+    400034: transform5
+    400036: transform6
+    400038: transform7
+    400040: transform8
+    400042: transform9
     2100000: lambert1
-    2300000: pasted__pCube13
-    3300000: pasted__pCube13
-    4300000: pasted__pCube13
+    2300000: pCube11
+    3300000: pCube11
+    4300000: pCube11
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -67,7 +81,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
