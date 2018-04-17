@@ -9,8 +9,9 @@ public class MovePlatform : MonoBehaviour {
 	[Header("Remember to freeze rotation!")]
 	public Rigidbody platRb;	// remember to freeze rotaion
 
-	[Header("Just tells the direction to go.")]
-	[Header("      distance = speed * time")]
+	[Header("EndPoint just tells the direction to")]
+	[Header("      go.")]
+	[Header("distance = speed * time")]
 	public Transform endPoint;	//tells direction
 	private Vector3 endPointVector;
 
