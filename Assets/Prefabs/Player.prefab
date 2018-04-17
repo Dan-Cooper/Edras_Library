@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 143437885852781470}
   - component: {fileID: 114717643640385624}
   - component: {fileID: 114671858531066166}
+  - component: {fileID: 114911810021276288}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -215,6 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0add4028de12c3544a1c33d66fb6100f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Black: {fileID: 0}
+  TransitionSpeed: 0
   Ledge: {fileID: 1830340746508808, guid: ca0c91592e91c2846b8e897d0b10386d, type: 2}
   LedgeSpawned: 0
   WalkSpeed: 5
@@ -223,7 +226,6 @@ MonoBehaviour:
   FallMultiplier: 2
   LowJumpMultiplier: 4
   _climbVelocity: 10
-  _climbDecay: 0
 --- !u!114 &114808500990637636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -237,6 +239,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 2
   player: {fileID: 4086699558340746}
+--- !u!114 &114911810021276288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1157457145293816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb161eb961e4484cbb6a4c30de27ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dummyVariable: O hai :D
 --- !u!124 &124154920068052354
 Behaviour:
   m_ObjectHideFlags: 1
