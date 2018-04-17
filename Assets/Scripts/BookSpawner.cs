@@ -20,12 +20,6 @@ public class BookSpawner : MonoBehaviour
 	{
 		StartCoroutine(Timer());
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate ()
-	{
-		if(_spawn)BookSpawn();
-	}
 
 	void BookSpawn()
 	{
@@ -36,10 +30,15 @@ public class BookSpawner : MonoBehaviour
 	IEnumerator Timer ()
 	{   
 		print("Reached the target.");
-		_spawn = false;
-		yield return new WaitForSeconds(1f);
-		_spawn = true;
-        
-		print("routine is now finished.");
+		while (true)
+		{
+			_spawn = false;
+			yield return new WaitForSeconds(1f);
+			BookSpawn();
+			_spawn = true;
+			yield return new WaitForSeconds(1f);
+
+			print("routine is now finished.");
+		}
 	}
 }

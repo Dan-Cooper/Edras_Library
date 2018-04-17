@@ -23,7 +23,7 @@ public class PlayerControler : MonoBehaviour
     public float FallMultiplier;
     public float LowJumpMultiplier;
 
-    private int _health = 100;
+    private float _health = 100;
 
     private bool _jumpRequest;
     private Vector3 _moveDir = new Vector3(0,0,0);
@@ -208,7 +208,7 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
-    public void Damage(int value)
+    public void Damage(float value)
     {
         _health -= value;
         if (_health <= 0)

@@ -15,7 +15,7 @@ public class Turret : MonoBehaviour
 	private RaycastHit _fire;
 	public float Range = 10;
 	public float Speed = 1;
-	public int Damage = 1;
+	public float Damage = 1;
 	
 	
 	// Use this for initialization
