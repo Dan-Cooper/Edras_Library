@@ -7,35 +7,35 @@ using UnityEngine;
 public class RampSpawning : MonoBehaviour {
 
 	public int maxRamps;
+	public float minDistance = 3f;
+	public float maxDistance = 15f;
 
-	[Space]
-
-	[Header("0 = spawn ramp")]
-	[Header("1 = spawn floor")]
-	[Header("2 = spawn wall")]
-	[Header("3 = spawn lift")]
-	[Header("any other # = error")]
-	[Header("Size should be 4.")]
+	[Header("Size should be the same integars.")]
+	public int arraySize;
 	public GameObject[] ramp;
 	public GameObject[] rampGuideObj;
 
 	[Space]
 
-	public Transform playerTransform;
 	public Transform whereRampSpawns;
+	private Transform playerTransform;
 	private GameObject guideInst;
-	//	public Transform cameraTransform;	//unused?
 
 	[Space]
 
-	[Header("Variables below used just for")]
-	[Header("    reference")]	// They will be reset at Start()
+	[Header("Variables below used for enabling")]
+	[Header("    and disabling magic platform ")]
+	[Header("    spawning")]			// They will be reset at Start()
 	public bool rampEnable;
-	[SerializeField]	private bool prepareRamp;
-	[SerializeField]	private int rampTag;	// for the array
-	[SerializeField]	private int currentRamps;
+//	[SerializeField]	
+	private bool prepareRamp;
+//	[SerializeField]	
+	private int rampTag;	// for the array
+//	[SerializeField]	
+	private int currentRamps;
 
 	void Start () {
+		playerTransform = GetComponent<Transform>();
 		rampEnable = true;
 		prepareRamp = false;
 		rampTag = 0;
@@ -46,24 +46,19 @@ public class RampSpawning : MonoBehaviour {
 	void Update () {
 		if(rampEnable){
 			//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-
+			// Inputs: "Summon Plat", "Switch Plat", "Mouse ScrollWheel", ""
 			if (Input.GetButtonDown("Summon Plat")){
 
 		
 				if (prepareRamp) {
 
 					Destroy(guideInst);	// deletes rampGuide instance
-										// assigned in the "else if" below
-	//				rampInst =
 
-					//	if not cancelled or switched
 					Instantiate(ramp[rampTag]
-						, whereRampSpawns.position
+						, guideInst.transform.position
 						, playerTransform.rotation
 					);
-					// "if switched" go here
-					// "if cancellled" go here
-
+												// Ctrl + F add sound here
 					prepareRamp = false;
 				}
 				else if((currentRamps < maxRamps) && !prepareRamp){
@@ -73,6 +68,7 @@ public class RampSpawning : MonoBehaviour {
 							, playerTransform.rotation
 							, playerTransform
 						);
+												// Ctrl + F add sound here
 
 					currentRamps += 1;
 					prepareRamp = true;
@@ -86,11 +82,14 @@ public class RampSpawning : MonoBehaviour {
 
 			if(Input.GetButtonDown("Switch Plat")){
 				// assign ramp# based on rampTag
-				if(rampTag>=0 && rampTag <=3){
+				if(rampTag>=0 && rampTag < arraySize-1){
 					rampTag +=1;
 				}
-				else if(rampTag == 4){
+				else if(rampTag == arraySize-1){
 					rampTag = 0;
+				}
+				else{
+					Debug.Log("Error.");
 				}
 
 				if(prepareRamp){
@@ -101,9 +100,32 @@ public class RampSpawning : MonoBehaviour {
 							, playerTransform.rotation
 							, playerTransform
 						);
+												// Ctrl + F add sound here
 				}
 			}
+			// ###############################################
+			if(prepareRamp){
+				guideInst.transform.localPosition += new Vector3(0f, 0f,
+					Input.GetAxis("Mouse ScrollWheel")*10f);
+				
+				if(guideInst.transform.localPosition.z <= minDistance){	// minimum distance from player
+					guideInst.transform.localPosition = 
+						new Vector3(0f,whereRampSpawns.position.y,minDistance);
+				}
+				if(guideInst.transform.localPosition.z >= maxDistance){	// maximum distance from player
+					guideInst.transform.localPosition = 
+						new Vector3(0f,whereRampSpawns.position.y,maxDistance);
+				}
 
+//				Debug.Log(guideInst.transform.localPosition);
+
+				if(Input.GetButtonDown("Undo Summon")){
+					Destroy(guideInst);
+					prepareRamp = false;
+				}
+
+			}
+			// ################################"Mouse ScrollWheel"
 			//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^			
 		}
 
