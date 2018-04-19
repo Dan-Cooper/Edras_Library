@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class PlayerControler : MonoBehaviour
 {
     private CharacterController _charControl;
+    private Vector3 OsdForce;
+    public float ForceMult;
 
     public Image Black;
 
@@ -64,6 +66,7 @@ public class PlayerControler : MonoBehaviour
 
         if(!_dead)MovePlayer();
         else Black.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, TransitionSpeed * Time.deltaTime);
+        OsdForce=new Vector3(0,0,0);
     }
 
     //ForWallJump Not used for build
@@ -136,6 +139,7 @@ public class PlayerControler : MonoBehaviour
         }
         //Debug.Log("Move" + moveDir.y);
         _moveDir.y -= Gravity * Time.deltaTime;
+        _moveDir += OsdForce*ForceMult;
         _charControl.Move(_moveDir * Time.deltaTime);
         //if(!_fDetect || !_rDetect || !_lDetect) _wallContact = false;
     }
@@ -207,7 +211,8 @@ public class PlayerControler : MonoBehaviour
             Debug.DrawRay(transform.position + new Vector3(0, 1.5f, 0), mRgt, Color.green); //High Right
         }
     }
-
+    
+    //Call this to Damage the Player;
     public void Damage(float value)
     {
         _health -= value;
@@ -216,5 +221,14 @@ public class PlayerControler : MonoBehaviour
             Debug.Log("Dead");
             _dead = true;
         }
+    }
+
+    
+    //Call this to push the player
+    public void OutsideForce(Vector3 force)
+    {
+        print(force);
+        OsdForce = force;
+        //_charControl.(Vector3.Lerp(transform.position, force, 0.5f * Time.deltaTime));
     }
 }
