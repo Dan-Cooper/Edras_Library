@@ -24,8 +24,8 @@ public class RampSpawning : MonoBehaviour {
 
 	[Space]
 
-	public Transform whereRampSpawns;
-	private Transform playerTransform;
+	public Transform whereRampSpawns;	// Why 2 transforms?
+	private Transform playerTransform;	// Why 2 transforms?
 	private GameObject guideInst;
 
 	[Space]
@@ -74,6 +74,7 @@ public class RampSpawning : MonoBehaviour {
 							, whereRampSpawns.position
 							, playerTransform.rotation
 							, playerTransform
+//							, whereRampSpawns
 						);
 												// Ctrl + F add sound here
 
@@ -106,25 +107,28 @@ public class RampSpawning : MonoBehaviour {
 							, whereRampSpawns.position
 							, playerTransform.rotation
 							, playerTransform
+//							,whereRampSpawns
 						);
 												// Ctrl + F add sound here
 				}
 			}
-			// ###############################################
+			// #################################"Mouse ScrollWheel"
 			if(prepareRamp){
-				guideInst.transform.localPosition += new Vector3(0f, 0f,
+				Debug.Log(guideInst.transform.localPosition.y);
+
+				guideInst.transform.localPosition += new Vector3(0f, 0f,	// scrolling thing
 					Input.GetAxis("Mouse ScrollWheel")*10f);
 				
-				if(guideInst.transform.localPosition.z <= minDistance){	// minimum distance from player
+				if(guideInst.transform.localPosition.z <= minDistance){		// minimum distance from player
 					guideInst.transform.localPosition = 
 						new Vector3(0f,whereRampSpawns.position.y,minDistance);
 				}
-				if(guideInst.transform.localPosition.z >= maxDistance){	// maximum distance from player
+				if(guideInst.transform.localPosition.z >= maxDistance){		// maximum distance from player
 					guideInst.transform.localPosition = 
 						new Vector3(0f,whereRampSpawns.position.y,maxDistance);
 				}
+			// ################################
 
-//				Debug.Log(guideInst.transform.localPosition);
 
 				if(Input.GetButtonDown("Undo Summon")){
 					Destroy(guideInst);
@@ -132,8 +136,7 @@ public class RampSpawning : MonoBehaviour {
 				}
 
 			}
-			// ################################"Mouse ScrollWheel"
-			//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^			
+
 		}
 
 		else {	//	When ramp spawning is disabled.
