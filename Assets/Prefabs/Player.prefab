@@ -173,9 +173,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acc09b70f5f5d84586f97dd658d2569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRamps: 20
   minDistance: 3
   maxDistance: 15
+  enableMaxByType: 0
+  maxByType: 000000000000000000000000000000000000000000000000
+  enableMaxTotal: 1
+  maxTotal: 15
   arraySize: 6
   ramp:
   - {fileID: 1038501079959624, guid: 1d001916689a3eb47a1aded86fe1814d, type: 2}
