@@ -1,29 +1,48 @@
-﻿// Cathy made this. Unfinished
+﻿// Cathy made this. Finished for now.
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LeverSwitchButtonScript : MonoBehaviour {
+	[Header("Make this 'trigger' gameobject a ")]
+	[Header("      child of the switch/lever object.")]
+
+	[Header("The box collider is the area the ")]
+	[Header("      player is allowed to interact ")]
+	[Header("      with the object.")]
+
+	[Header("Right Click to change a true/false ")]
+	[Header("      variable.")]
+
+	[Header("Contact Cathy, so I can add a more ")]
+	[Header("      specific script.")]
+	[Space]
+
 	public bool singleUse;
 	public bool playerInputRequired;
+	[Space]
 
-	[HideInInspector] public bool isOn;
-	[HideInInspector] public bool isEnabled;
+	[Header("Intial state: ")]
+	public bool isOn;
+	public bool isEnabled;
 
-//	public Vector3 playerLocation;
+	private Transform playerLocation;
 
-//	void Start() {
-//		GameObject player = GameObject.FindGameObjectsWithTag("Player");
-//		playerLocation = GetComponent<Transform>();
-//	}
+	void Start() {
+		GameObject player = GameObject.FindGameObjectWithTag("Player");
+		playerLocation = GetComponent<Transform>();
+	}
 
 	void OnTriggerStay (Collider other) {		// when the player is close by
 		if(playerInputRequired){
-			if(isEnabled && Input.GetButtonDown("Submit")){
-				isOn = true;
+			if(isEnabled && Input.GetButtonDown("Switch Plat")){
+				isOn = !isOn;
+												// Ctrl + F add sound here
+				Debug.Log("isOn = " + isOn);
 				if(singleUse){
-					enabled = false;
+					isEnabled = false;
+					Debug.Log("isEnabled = " + isEnabled);
 				}
 			}
 			// check if player is facing switch
@@ -33,9 +52,12 @@ public class LeverSwitchButtonScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if(isEnabled && !playerInputRequired){
-			isOn = true;
+			isOn = !isOn;
+			Debug.Log("isOn = " + isOn);
 			if(singleUse){
-				enabled = false;
+				isEnabled = false;
+				Debug.Log("isEnabled = " + isEnabled);
+
 			}
 		}
 	}
