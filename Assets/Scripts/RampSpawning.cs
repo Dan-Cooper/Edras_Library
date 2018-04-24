@@ -6,9 +6,16 @@ using UnityEngine;
 
 public class RampSpawning : MonoBehaviour {
 
-	public int maxRamps;
 	public float minDistance = 3f;
 	public float maxDistance = 15f;
+
+	[Space]
+
+	[Header("Magic Platform Limits:")]
+	public bool enableMaxByType = false;
+	public int[] maxByType;
+	public bool enableMaxTotal = true;
+	public int maxTotal = 15;
 
 	[Header("Size should be the same integars.")]
 	public int arraySize;
@@ -23,10 +30,10 @@ public class RampSpawning : MonoBehaviour {
 
 	[Space]
 
-	[Header("Variables below used for enabling")]
-	[Header("    and disabling magic platform ")]
-	[Header("    spawning")]			// They will be reset at Start()
-	public bool rampEnable;
+//	[Header("Variables below used for enabling")]
+//	[Header("    and disabling magic platform ")]
+//	[Header("    spawning")]			// They will be reset at Start()
+	[HideInInspector] public bool rampEnable;
 //	[SerializeField]	
 	private bool prepareRamp;
 //	[SerializeField]	
@@ -61,7 +68,7 @@ public class RampSpawning : MonoBehaviour {
 												// Ctrl + F add sound here
 					prepareRamp = false;
 				}
-				else if((currentRamps < maxRamps) && !prepareRamp){
+				else if((currentRamps < maxTotal) && !prepareRamp){
 					guideInst = 
 						Instantiate(rampGuideObj[rampTag]
 							, whereRampSpawns.position
