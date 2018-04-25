@@ -28,7 +28,9 @@ public class RampSpawning : MonoBehaviour {
 	private bool prepareRamp;
 	private int rampTag;	// for the arrays
 	private int currentRampTotal;
-//##############################	public int[] currentRampByType;
+	[Header("Elements below should initially")]
+	[Header("      be at zero.")]
+	public int[] currentRampByType;
 
 
 	void Start () {
@@ -45,10 +47,16 @@ public class RampSpawning : MonoBehaviour {
 			if (Input.GetButtonDown("Summon Plat")){
 
 				if (prepareRamp) {
-					
-					SummonPlatMethod();
+					if( (currentRampTotal < maxTotal) 
+						&&(currentRampByType[rampTag] < maxByType[rampTag]) ) {
+						SummonPlatMethod();
+					}
+					else{
+						Debug.Log("Can't place any more! :(");
+					}
 				}
-				else if((currentRampTotal < maxTotal) && !prepareRamp){
+
+				else if(!prepareRamp){
 					SummonGuideMethod();
 				}
 				else {
@@ -81,6 +89,9 @@ public class RampSpawning : MonoBehaviour {
 			, playerTransform.rotation
 		);
 		// Ctrl + F add sound here
+
+		currentRampTotal += 1;
+		currentRampByType[rampTag] +=1;
 		prepareRamp = false;
 	}
 
@@ -94,7 +105,6 @@ public class RampSpawning : MonoBehaviour {
 			);
 		// Ctrl + F add sound here
 
-		currentRampTotal += 1;
 		prepareRamp = true;
 	}
 	//####################################################################

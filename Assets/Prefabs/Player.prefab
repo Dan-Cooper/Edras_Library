@@ -176,9 +176,9 @@ MonoBehaviour:
   minDistance: 6.5
   maxDistance: 15
   enableMaxByType: 0
-  maxByType: 000000000000000000000000000000000000000000000000
+  maxByType: 050000000500000005000000050000000500000005000000
   enableMaxTotal: 1
-  maxTotal: 15
+  maxTotal: 10
   arraySize: 6
   ramp:
   - {fileID: 1038501079959624, guid: 1d001916689a3eb47a1aded86fe1814d, type: 2}
@@ -196,6 +196,7 @@ MonoBehaviour:
   - {fileID: 1512154849615102, guid: 7ad20eae53ccc6a4eb5ba12faa8cb410, type: 2}
   whereRampSpawns: {fileID: 4280562439791116}
   rampEnable: 1
+  currentRampByType: 000000000000000000000000000000000000000000000000
 --- !u!114 &114692044198846774
 MonoBehaviour:
   m_ObjectHideFlags: 1
