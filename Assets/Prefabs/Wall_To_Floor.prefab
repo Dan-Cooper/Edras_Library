@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33728084284372120}
   - component: {fileID: 23884996555239898}
   - component: {fileID: 95023155668725914}
+  - component: {fileID: 64037169896438084}
   m_Layer: 0
   m_Name: Wall_to_Floor_Connector
   m_TagString: Untagged
@@ -111,6 +112,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1589068174768404}
+  m_Mesh: {fileID: 4300000, guid: d210d52a7916d8748904c7f631de8ab0, type: 3}
+--- !u!64 &64037169896438084
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1589068174768404}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: d210d52a7916d8748904c7f631de8ab0, type: 3}
 --- !u!95 &95023155668725914
 Animator:
