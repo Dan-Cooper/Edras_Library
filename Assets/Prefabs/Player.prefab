@@ -175,8 +175,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDistance: 6.5
   maxDistance: 15
-  enableMaxByType: 0
-  maxByType: 050000000500000005000000050000000500000005000000
+  enableMaxByType: 1
+  maxByType: 030000000300000003000000030000000300000003000000
   enableMaxTotal: 1
   maxTotal: 10
   arraySize: 6
