@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.CodeDom.Compiler;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerControler : MonoBehaviour
@@ -36,10 +38,11 @@ public class PlayerControler : MonoBehaviour
     private bool _rDetect;
     private bool _wallContact;
 
-   [SerializeField] private float _climbVelocity;
-   private float _climbDecay;
+    [SerializeField] private float _climbVelocity;
+    private float _climbDecay;
 
     private bool _dead;
+    private bool _beingDamaged;
 
     // Use this for initialization
     void Awake()
@@ -50,6 +53,12 @@ public class PlayerControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_health <= 0)
+        {
+            Debug.Log("Dead");
+            _dead = true;
+        }
+        
         ParcoreDetetion();
 
         if (Input.GetButtonDown("Jump") && _charControl.isGrounded) _jumpRequest = true;
@@ -216,11 +225,23 @@ public class PlayerControler : MonoBehaviour
     public void Damage(float value)
     {
         _health -= value;
-        if (_health <= 0)
+        
+    }
+
+    IEnumerator Heal()
+    {
+        float temp = _health;
+        yield return new WaitForSecondsRealtime(0.1f);
+        if (_health <= temp)
         {
-            Debug.Log("Dead");
-            _dead = true;
+            _beingDamaged = true;
         }
+        if (!_beingDamaged)
+        {
+            yield return new WaitForSecondsRealtime(3);
+            _heling = true;
+        }
+        yield break;
     }
 
     
@@ -229,6 +250,6 @@ public class PlayerControler : MonoBehaviour
     {
         print(force);
         OsdForce = force;
-        //_charControl.(Vector3.Lerp(transform.position, force, 0.5f * Time.deltaTime));
+        _charControl.Move(Vector3.Lerp(transform.position, force, 0.5f * Time.deltaTime));
     }
 }

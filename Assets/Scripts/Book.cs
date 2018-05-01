@@ -13,7 +13,7 @@ public class Book : MonoBehaviour {
     {
         if (other.gameObject.tag.Equals("Player"))
         {
-            other.gameObject.GetComponent<PlayerControler>().OutsideForce(GetComponent<Rigidbody>().angularVelocity);
+            other.gameObject.GetComponent<PlayerControler>().OutsideForce(GetComponent<Rigidbody>().GetRelativePointVelocity(other.transform.position));
         }
         Destroy(this.gameObject);
     }
