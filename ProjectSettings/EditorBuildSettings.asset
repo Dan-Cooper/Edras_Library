@@ -17,12 +17,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level6.unity
     guid: 7de028248e1fa734eb5444817b6491b1
-  - enabled: 0
-    path: Assets/Scenes/MainMenu.unity
-    guid: c8ba96ebab06bcf4f980fc0bc94c18ac
-  - enabled: 0
-    path: Assets/Scenes/DansDevHell.unity
-    guid: dc535ab0b81eb22469c2440bac40a81a
-  - enabled: 0
-    path: Assets/Scenes/Zack_TLevel.unity
-    guid: 38363ee7c9f8c6649a1cdb5fee1c785e
