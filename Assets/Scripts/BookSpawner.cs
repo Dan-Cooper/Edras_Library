@@ -29,7 +29,7 @@ public class BookSpawner : MonoBehaviour
 	
 	IEnumerator Timer ()
 	{   
-		print("Reached the target.");
+		//print("Reached the target.");
 		while (true)
 		{
 			_spawn = false;
@@ -38,7 +38,7 @@ public class BookSpawner : MonoBehaviour
 			_spawn = true;
 			yield return new WaitForSeconds(1f);
 
-			print("routine is now finished.");
+			//print("routine is now finished.");
 		}
 	}
 }

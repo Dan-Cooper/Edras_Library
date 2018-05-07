@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using System.CodeDom.Compiler;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerControler : MonoBehaviour
 {
     private CharacterController _charControl;
+    private Vector3 OsdForce;
+    public float ForceMult;
 
     public Image Black;
 
@@ -34,10 +38,12 @@ public class PlayerControler : MonoBehaviour
     private bool _rDetect;
     private bool _wallContact;
 
-   [SerializeField] private float _climbVelocity;
-   private float _climbDecay;
+    [SerializeField] private float _climbVelocity;
+    private float _climbDecay;
 
     private bool _dead;
+    private bool _beingDamaged;
+    private bool _healing;
 
     // Use this for initialization
     void Awake()
@@ -48,6 +54,16 @@ public class PlayerControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_health <= 0)
+        {
+            Debug.Log("Dead");
+            _dead = true;
+        }
+        if (_health < 100 && _healing)
+            _health += 1;
+        
+        StartCoroutine(Heal());
+        
         ParcoreDetetion();
 
         if (Input.GetButtonDown("Jump") && _charControl.isGrounded) _jumpRequest = true;
@@ -64,6 +80,7 @@ public class PlayerControler : MonoBehaviour
 
         if(!_dead)MovePlayer();
         else Black.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, TransitionSpeed * Time.deltaTime);
+        OsdForce=new Vector3(0,0,0);
     }
 
     //ForWallJump Not used for build
@@ -136,6 +153,7 @@ public class PlayerControler : MonoBehaviour
         }
         //Debug.Log("Move" + moveDir.y);
         _moveDir.y -= Gravity * Time.deltaTime;
+        _moveDir += OsdForce*ForceMult;
         _charControl.Move(_moveDir * Time.deltaTime);
         //if(!_fDetect || !_rDetect || !_lDetect) _wallContact = false;
     }
@@ -207,14 +225,42 @@ public class PlayerControler : MonoBehaviour
             Debug.DrawRay(transform.position + new Vector3(0, 1.5f, 0), mRgt, Color.green); //High Right
         }
     }
-
+    
+    //Call this to Damage the Player;
     public void Damage(float value)
     {
         _health -= value;
-        if (_health <= 0)
+        _healing = false;
+
+    }
+
+    IEnumerator Heal()
+    {
+        float temp = _health;
+        //print("entered");
+        yield return new WaitForSecondsRealtime(0.5f);
+        //print(_health + " "+ temp);
+        if (_health < temp)
         {
-            Debug.Log("Dead");
-            _dead = true;
+            //print("Damage continues no healing");
+            _beingDamaged = true;
         }
+        if (!_beingDamaged)
+        {
+            //print("HealTrigger Wait 3");
+            yield return new WaitForSecondsRealtime(5);
+            _healing = true;
+        }
+        _beingDamaged = false;
+        yield break;
+    }
+
+    
+    //Call this to push the player
+    public void OutsideForce(Vector3 force)
+    {
+        //print(force);
+        OsdForce = force;
+        _charControl.Move(Vector3.Lerp(transform.position, force, 0.5f * Time.deltaTime));
     }
 }

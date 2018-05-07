@@ -50,9 +50,12 @@ public class PlayerCamera : MonoBehaviour
 			targetRotCam.x = 270;
 		}
 		
-		
-
 		transform.rotation = Quaternion.Euler(targetRotCam);
 		player.rotation = Quaternion.Euler(targetRotBody);
+	}
+
+	void ParkorTilt()
+	{
+		
 	}
 }
