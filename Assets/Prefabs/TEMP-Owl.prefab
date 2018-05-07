@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc68f8d8d075cda4f8c2700808db9ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 1157457145293816, guid: e51689707a4c46644b360cb5da28c96b, type: 2}
   _head: {fileID: 1008831826449234}
   _body: {fileID: 1958136811230820}
   _light: {fileID: 1790006562967508}

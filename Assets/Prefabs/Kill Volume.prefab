@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4450778066329286}
   - component: {fileID: 65476770391802348}
-  - component: {fileID: 114427872841396604}
+  - component: {fileID: 114733917184245144}
   m_Layer: 0
   m_Name: Kill Volume
   m_TagString: Untagged
@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1813524066906938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -25, z: 0}
+  m_LocalPosition: {x: -41.216095, y: 53.67394, z: -139.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,7 +53,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 250, y: 8, z: 250}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114427872841396604
+--- !u!114 &114733917184245144
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1813524066906938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fc5ae5b02b0b4e4ebb8b5fca480cd84, type: 3}
+  m_Script: {fileID: 11500000, guid: 17d38ac7b2a884d41acc477dee8b1522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dummyVariable: Not just an info script
+  dummyVariable: 
