@@ -43,6 +43,7 @@ public class PlayerControler : MonoBehaviour
 
     private bool _dead;
     private bool _beingDamaged;
+    private bool _healing;
 
     // Use this for initialization
     void Awake()
@@ -58,6 +59,10 @@ public class PlayerControler : MonoBehaviour
             Debug.Log("Dead");
             _dead = true;
         }
+        if (_health < 100 && _healing)
+            _health += 1;
+        
+        StartCoroutine(Heal());
         
         ParcoreDetetion();
 
@@ -225,22 +230,28 @@ public class PlayerControler : MonoBehaviour
     public void Damage(float value)
     {
         _health -= value;
-        
+        _healing = false;
+
     }
 
     IEnumerator Heal()
     {
         float temp = _health;
-        yield return new WaitForSecondsRealtime(0.1f);
-        if (_health <= temp)
+        //print("entered");
+        yield return new WaitForSecondsRealtime(0.5f);
+        //print(_health + " "+ temp);
+        if (_health < temp)
         {
+            //print("Damage continues no healing");
             _beingDamaged = true;
         }
         if (!_beingDamaged)
         {
-            yield return new WaitForSecondsRealtime(3);
-            _heling = true;
+            //print("HealTrigger Wait 3");
+            yield return new WaitForSecondsRealtime(5);
+            _healing = true;
         }
+        _beingDamaged = false;
         yield break;
     }
 
@@ -248,7 +259,7 @@ public class PlayerControler : MonoBehaviour
     //Call this to push the player
     public void OutsideForce(Vector3 force)
     {
-        print(force);
+        //print(force);
         OsdForce = force;
         _charControl.Move(Vector3.Lerp(transform.position, force, 0.5f * Time.deltaTime));
     }
