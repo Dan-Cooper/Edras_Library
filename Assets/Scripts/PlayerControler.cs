@@ -9,7 +9,7 @@ public class PlayerControler : MonoBehaviour
     private Vector3 OsdForce;
     public float ForceMult;
 
-    public Image Black;
+    //public Image Black;
 
     public float TransitionSpeed;
     //private Rigidbody rb;
@@ -79,7 +79,7 @@ public class PlayerControler : MonoBehaviour
         }
 
         if(!_dead)MovePlayer();
-        else Black.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, TransitionSpeed * Time.deltaTime);
+        //else Black.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, TransitionSpeed * Time.deltaTime);
         OsdForce=new Vector3(0,0,0);
     }
 

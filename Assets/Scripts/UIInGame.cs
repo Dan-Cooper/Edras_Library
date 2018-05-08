@@ -7,6 +7,8 @@ public class UIInGame : MonoBehaviour
 {
 
 	public GameObject Player;
+
+	public Image FadeOut;
 	
 	public Text LargCardText;
 	public Text SmallCardText0;
