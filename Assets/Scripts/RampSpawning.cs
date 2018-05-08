@@ -1,4 +1,4 @@
-﻿// Cathy made this.
+﻿// This is Cathy's baby.
 
 using System.Collections;
 using System.Collections.Generic;
@@ -55,7 +55,6 @@ public class RampSpawning : MonoBehaviour {
 						Debug.Log("Can't place any more! :(");
 					}
 				}
-
 				else if(!prepareRamp){
 					SummonGuideMethod();
 				}
@@ -122,6 +121,23 @@ public class RampSpawning : MonoBehaviour {
 				Debug.Log("Error.");
 			}
 
+			// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv testing grounds
+			Debug.Log(currentRampByType[rampTag] +"=="+ maxByType[rampTag] +"?");
+			if(currentRampByType[rampTag] == maxByType[rampTag]) {	// skip if that plat all used
+				if(rampTag>=0 || rampTag < arraySize-1){		// repeat code
+					rampTag +=1;
+				}
+				else if(rampTag == arraySize-1){
+					rampTag = 0;
+				}
+				else{
+					Debug.Log("Hullo.");
+				}
+				Debug.Log("xxhcjxhjgkl");
+
+			}
+			// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ testing grounds
+
 			if(prepareRamp){
 				Destroy(guideInst);
 				guideInst =
@@ -138,7 +154,7 @@ public class RampSpawning : MonoBehaviour {
 	//####################################################################
 
 	void ScrollPlatMethod() {
-		Debug.Log(guideInst.transform.localPosition.y);
+		//Debug.Log(guideInst.transform.localPosition.y);
 
 		guideInst.transform.localPosition += new Vector3(0f, 0f,	// scrolling thing
 			Input.GetAxis("Mouse ScrollWheel")*10f);
