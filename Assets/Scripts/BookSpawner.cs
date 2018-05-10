@@ -28,13 +28,13 @@ public class BookSpawner : MonoBehaviour
 
 	void BookSpawn()
 	{
-		if (ranumb >= 0.3) {
+		if (ranumb <= 0.3) {
 			GameObject book = Instantiate (Book, transform.position, transform.rotation);
 			book.GetComponent<Rigidbody> ().velocity = transform.TransformDirection (Vector3.forward * Speed);
-		} else if (ranumb >= 0.6){
+		} else if (ranumb <= 0.6){
 			GameObject book = Instantiate (Book2, transform.position, transform.rotation);
 			book.GetComponent<Rigidbody> ().velocity = transform.TransformDirection (Vector3.forward * Speed);
-		} else if (ranumb < 0.6){
+		} else {
 			GameObject book = Instantiate (Book3, transform.position, transform.rotation);
 			book.GetComponent<Rigidbody> ().velocity = transform.TransformDirection (Vector3.forward * Speed);
 		}
