@@ -775,6 +775,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: maxByType.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4086699558340746, guid: e51689707a4c46644b360cb5da28c96b, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -816,6 +821,11 @@ Prefab:
         type: 2}
       propertyPath: ForceMult
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: enableMaxByType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e51689707a4c46644b360cb5da28c96b, type: 2}
