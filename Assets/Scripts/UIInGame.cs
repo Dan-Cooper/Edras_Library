@@ -38,7 +38,14 @@ public class UIInGame : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
-		LoadQ();
+		LargeCardQ = new Queue<Image>();
+		SmallCardImg0Q= new Queue<Image>();
+		SmallCardImg1Q= new Queue<Image>();
+		SmallCardImg2Q= new Queue<Image>();
+		SmallCardImg3Q= new Queue<Image>();
+
+		
+		StartCoroutine(LoadQ());
 	}
 	
 	// Update is called once per frame
@@ -76,7 +83,7 @@ public class UIInGame : MonoBehaviour
 	}
 
 	//Takes the arrays of Images and loades them into the aproprate Q
-	void LoadQ()
+	IEnumerator LoadQ()
 	{
 		foreach (var Image in LargeCardImg)
 		{
@@ -98,6 +105,8 @@ public class UIInGame : MonoBehaviour
 		{
 			SmallCardImg3Q.Enqueue(Image);
 		}
+		print("UI Load True");
+		yield break;
 	}
 
 	void InitMaxPlat()

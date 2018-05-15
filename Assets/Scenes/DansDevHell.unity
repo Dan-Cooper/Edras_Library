@@ -778,7 +778,12 @@ Prefab:
     - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
         type: 2}
       propertyPath: maxByType.Array.size
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: RampGuideObj.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4086699558340746, guid: e51689707a4c46644b360cb5da28c96b, type: 2}
       propertyPath: m_LocalPosition.x
@@ -825,6 +830,77 @@ Prefab:
     - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
         type: 2}
       propertyPath: enableMaxByType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: SquarePlat
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: IPlat
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: LPlat
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: RampPlat
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: XPlat
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: WallPlat
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: RampGuideObj.Array.data[0]
+      value: 
+      objectReference: {fileID: 1038501079959624, guid: 1d001916689a3eb47a1aded86fe1814d,
+        type: 2}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: RampGuideObj.Array.data[1]
+      value: 
+      objectReference: {fileID: 1047084177398200, guid: b19616d72ccd9ff4bb901340f6ec63c9,
+        type: 2}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: RampGuideObj.Array.data[2]
+      value: 
+      objectReference: {fileID: 1792660737802606, guid: 858ebd1e45b0e204a902c93d45c3b3ee,
+        type: 2}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: RampGuideObj.Array.data[3]
+      value: 
+      objectReference: {fileID: 1478262855967120, guid: 1f53276773953b24bae19a407830f6a2,
+        type: 2}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: RampGuideObj.Array.data[4]
+      value: 
+      objectReference: {fileID: 1817968538825764, guid: 4cfe7540950c1564e8d4d9bc0d099bba,
+        type: 2}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: RampGuideObj.Array.data[5]
+      value: 
+      objectReference: {fileID: 1512154849615102, guid: 7ad20eae53ccc6a4eb5ba12faa8cb410,
+        type: 2}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: RampEnable
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

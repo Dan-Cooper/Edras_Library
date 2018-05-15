@@ -550,41 +550,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  FadeOut: {fileID: 0}
   LargCardText: {fileID: 114981029556744794}
   SmallCardText0: {fileID: 114030095087213526}
   SmallCardText1: {fileID: 114678642999655058}
   SmallCardText2: {fileID: 114981563339532296}
   SmallCardText3: {fileID: 114681827909680382}
   LargeCardImg:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 114860327583156312, guid: 0e7b5113847cbea4b96bf30ffc1cba3a, type: 2}
+  - {fileID: 114860327583156312, guid: d54ff5fd81efb3a41aee288ca1c4de51, type: 2}
+  - {fileID: 114860327583156312, guid: dd06fd1d340bd5249a589eca8fdf9e9f, type: 2}
+  - {fileID: 114860327583156312, guid: e45f9897fc472f34cb70e9e819a953dc, type: 2}
+  - {fileID: 114860327583156312, guid: f3b7f7f47d174cb468239f9a5a9f527c, type: 2}
   SmallCardImg0:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 114860327583156312, guid: 0e7b5113847cbea4b96bf30ffc1cba3a, type: 2}
+  - {fileID: 114860327583156312, guid: d54ff5fd81efb3a41aee288ca1c4de51, type: 2}
+  - {fileID: 114860327583156312, guid: dd06fd1d340bd5249a589eca8fdf9e9f, type: 2}
+  - {fileID: 114860327583156312, guid: e45f9897fc472f34cb70e9e819a953dc, type: 2}
+  - {fileID: 114860327583156312, guid: f3b7f7f47d174cb468239f9a5a9f527c, type: 2}
   SmallCardImg1:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 114860327583156312, guid: 0e7b5113847cbea4b96bf30ffc1cba3a, type: 2}
+  - {fileID: 114860327583156312, guid: d54ff5fd81efb3a41aee288ca1c4de51, type: 2}
+  - {fileID: 114860327583156312, guid: dd06fd1d340bd5249a589eca8fdf9e9f, type: 2}
+  - {fileID: 114860327583156312, guid: e45f9897fc472f34cb70e9e819a953dc, type: 2}
+  - {fileID: 114860327583156312, guid: f3b7f7f47d174cb468239f9a5a9f527c, type: 2}
   SmallCardImg2:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 114860327583156312, guid: 0e7b5113847cbea4b96bf30ffc1cba3a, type: 2}
+  - {fileID: 114860327583156312, guid: d54ff5fd81efb3a41aee288ca1c4de51, type: 2}
+  - {fileID: 114860327583156312, guid: dd06fd1d340bd5249a589eca8fdf9e9f, type: 2}
+  - {fileID: 114860327583156312, guid: e45f9897fc472f34cb70e9e819a953dc, type: 2}
+  - {fileID: 114860327583156312, guid: f3b7f7f47d174cb468239f9a5a9f527c, type: 2}
   SmallCardImg3:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 114860327583156312, guid: 0e7b5113847cbea4b96bf30ffc1cba3a, type: 2}
+  - {fileID: 114860327583156312, guid: d54ff5fd81efb3a41aee288ca1c4de51, type: 2}
+  - {fileID: 114860327583156312, guid: dd06fd1d340bd5249a589eca8fdf9e9f, type: 2}
+  - {fileID: 114860327583156312, guid: e45f9897fc472f34cb70e9e819a953dc, type: 2}
+  - {fileID: 114860327583156312, guid: f3b7f7f47d174cb468239f9a5a9f527c, type: 2}
 --- !u!114 &114930331263783852
 MonoBehaviour:
   m_ObjectHideFlags: 1
