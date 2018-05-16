@@ -22,6 +22,7 @@ public class DoorLeverScript : MonoBehaviour {
 	public bool requiresPlayerInput = true;
 	[Header("Put door object here: ")]
 	public GameObject door;
+	public AudioSource[] sfx;
 
 	private bool isOpen;
 	private bool canOpen;
@@ -38,6 +39,8 @@ public class DoorLeverScript : MonoBehaviour {
 					isOpen = !isOpen;
 					OpenDoor();
 													// Ctrl + F add sound here
+					sfx[Random.Range(0,3)].Play();
+													// Added sound
 					Debug.Log("isOpen = " + isOpen);
 					if(singleUse){
 						canOpen = false;
