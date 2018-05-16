@@ -29346,6 +29346,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7dc01d5792688d247aa273d0bd35e68d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &719936093 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1099631370171526, guid: 7dc01d5792688d247aa273d0bd35e68d,
+    type: 2}
+  m_PrefabInternal: {fileID: 719936092}
 --- !u!1001 &720100490
 Prefab:
   m_ObjectHideFlags: 0
@@ -86781,6 +86786,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114621742224350296, guid: a3b84d5efd0c49e48b4adf264633a359,
+        type: 2}
+      propertyPath: Door
+      value: 
+      objectReference: {fileID: 719936093}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3b84d5efd0c49e48b4adf264633a359, type: 2}
   m_IsPrefabParent: 0
