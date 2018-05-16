@@ -263,4 +263,9 @@ public class PlayerControler : MonoBehaviour
         OsdForce = force;
         _charControl.Move(Vector3.Lerp(transform.position, force, 0.5f * Time.deltaTime));
     }
+
+    public float GetHealth()
+    {
+        return _health;
+    }
 }

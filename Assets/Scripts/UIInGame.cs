@@ -8,7 +8,12 @@ public class UIInGame : MonoBehaviour
 
 	public GameObject Player;
 
-	public Image FadeOut;
+	public Texture FadeOut;
+	public Image FadeImg;
+	private Color _c;
+	public int FadeSpeed;
+	
+	private float _alpha = 0;
 
 	public Image[] AllCards; // Call this to change the images
 	[Space]
@@ -61,6 +66,9 @@ public class UIInGame : MonoBehaviour
 	{
 		LargeCardText.text =""+ Player.GetComponent<RampSpawning>().Get_CurentVal();
 		
+		//if(Input.GetKeyDown(KeyCode.P))
+			DamageFade();
+		
 		if (Input.GetButtonDown("Summon Plat"))
 		{
 			
@@ -107,6 +115,25 @@ public class UIInGame : MonoBehaviour
 		{
 			
 		}
+	}
+
+	void DamageFade()
+	{
+		
+		//_alpha += 1f * (float)FadeSpeed * Time.deltaTime;
+		if(Player.GetComponent<PlayerControler>().GetHealth()>0)
+			_alpha = 100 / Player.GetComponent<PlayerControler>().GetHealth()-1;
+		else
+			_alpha = 100;
+		
+		_alpha = Mathf.Clamp01(_alpha);   
+		
+		print(_alpha);
+     
+		_c = FadeImg.color;
+		_c.a = _alpha;
+		
+		FadeImg.color = _c;
 	}
 
 	//Takes the arrays of Images and loades them into the aproprate Q
