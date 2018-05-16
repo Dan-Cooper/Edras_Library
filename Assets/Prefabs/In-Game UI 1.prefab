@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222264746995258104}
   - component: {fileID: 114099180560301712}
   m_Layer: 5
-  m_Name: SC3_Number
+  m_Name: SC4_Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 222022486352131036}
   - component: {fileID: 114930331263783852}
   m_Layer: 5
-  m_Name: SmallCard4
+  m_Name: SmallCard5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 222856654667667712}
   - component: {fileID: 114681827909680382}
   m_Layer: 5
-  m_Name: SC4_Number
+  m_Name: SC5_Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -340,7 +340,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5118a700aa5ba1c41a048f2149a5b956, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8fc758dc0d0abde49844d763884d705a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -383,7 +383,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5118a700aa5ba1c41a048f2149a5b956, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b18ffd21c692c034fb2329e278c6271d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -410,7 +410,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5118a700aa5ba1c41a048f2149a5b956, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8935197ed50dff4aa13b70b3ff75ab9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -437,7 +437,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b18ffd21c692c034fb2329e278c6271d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc788c9a836063a459a7ab08b62411aa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -464,7 +464,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5118a700aa5ba1c41a048f2149a5b956, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32543de98a30ab64d807386f8fb7ff8e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -551,41 +551,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   FadeOut: {fileID: 0}
-  LargCardText: {fileID: 114981029556744794}
+  AllCards:
+  - {fileID: 114578609597149714}
+  - {fileID: 114636870051929438}
+  - {fileID: 114572012924919480}
+  - {fileID: 114267827272082674}
+  - {fileID: 114577971991388060}
+  - {fileID: 114930331263783852}
+  LargeCardText: {fileID: 114981029556744794}
   SmallCardText0: {fileID: 114030095087213526}
   SmallCardText1: {fileID: 114678642999655058}
   SmallCardText2: {fileID: 114981563339532296}
-  SmallCardText3: {fileID: 114681827909680382}
+  SmallCardText3: {fileID: 114099180560301712}
+  SmallCardText4: {fileID: 114681827909680382}
   LargeCardImg:
-  - {fileID: 114860327583156312, guid: 0e7b5113847cbea4b96bf30ffc1cba3a, type: 2}
-  - {fileID: 114860327583156312, guid: d54ff5fd81efb3a41aee288ca1c4de51, type: 2}
-  - {fileID: 114860327583156312, guid: dd06fd1d340bd5249a589eca8fdf9e9f, type: 2}
-  - {fileID: 114860327583156312, guid: e45f9897fc472f34cb70e9e819a953dc, type: 2}
-  - {fileID: 114860327583156312, guid: f3b7f7f47d174cb468239f9a5a9f527c, type: 2}
+  - {fileID: 21300000, guid: dc788c9a836063a459a7ab08b62411aa, type: 3}
+  - {fileID: 21300000, guid: 32543de98a30ab64d807386f8fb7ff8e, type: 3}
+  - {fileID: 21300000, guid: b18ffd21c692c034fb2329e278c6271d, type: 3}
+  - {fileID: 21300000, guid: 8fc758dc0d0abde49844d763884d705a, type: 3}
+  - {fileID: 21300000, guid: a8935197ed50dff4aa13b70b3ff75ab9, type: 3}
+  - {fileID: 21300000, guid: 1f5193d9bcc614241be89a542a319bbc, type: 3}
   SmallCardImg0:
-  - {fileID: 114860327583156312, guid: 0e7b5113847cbea4b96bf30ffc1cba3a, type: 2}
-  - {fileID: 114860327583156312, guid: d54ff5fd81efb3a41aee288ca1c4de51, type: 2}
-  - {fileID: 114860327583156312, guid: dd06fd1d340bd5249a589eca8fdf9e9f, type: 2}
-  - {fileID: 114860327583156312, guid: e45f9897fc472f34cb70e9e819a953dc, type: 2}
-  - {fileID: 114860327583156312, guid: f3b7f7f47d174cb468239f9a5a9f527c, type: 2}
+  - {fileID: 21300000, guid: 32543de98a30ab64d807386f8fb7ff8e, type: 3}
+  - {fileID: 21300000, guid: b18ffd21c692c034fb2329e278c6271d, type: 3}
+  - {fileID: 21300000, guid: 8fc758dc0d0abde49844d763884d705a, type: 3}
+  - {fileID: 21300000, guid: a8935197ed50dff4aa13b70b3ff75ab9, type: 3}
+  - {fileID: 21300000, guid: 1f5193d9bcc614241be89a542a319bbc, type: 3}
+  - {fileID: 21300000, guid: dc788c9a836063a459a7ab08b62411aa, type: 3}
   SmallCardImg1:
-  - {fileID: 114860327583156312, guid: 0e7b5113847cbea4b96bf30ffc1cba3a, type: 2}
-  - {fileID: 114860327583156312, guid: d54ff5fd81efb3a41aee288ca1c4de51, type: 2}
-  - {fileID: 114860327583156312, guid: dd06fd1d340bd5249a589eca8fdf9e9f, type: 2}
-  - {fileID: 114860327583156312, guid: e45f9897fc472f34cb70e9e819a953dc, type: 2}
-  - {fileID: 114860327583156312, guid: f3b7f7f47d174cb468239f9a5a9f527c, type: 2}
+  - {fileID: 21300000, guid: b18ffd21c692c034fb2329e278c6271d, type: 3}
+  - {fileID: 21300000, guid: 8fc758dc0d0abde49844d763884d705a, type: 3}
+  - {fileID: 21300000, guid: a8935197ed50dff4aa13b70b3ff75ab9, type: 3}
+  - {fileID: 21300000, guid: 1f5193d9bcc614241be89a542a319bbc, type: 3}
+  - {fileID: 21300000, guid: dc788c9a836063a459a7ab08b62411aa, type: 3}
+  - {fileID: 21300000, guid: 32543de98a30ab64d807386f8fb7ff8e, type: 3}
   SmallCardImg2:
-  - {fileID: 114860327583156312, guid: 0e7b5113847cbea4b96bf30ffc1cba3a, type: 2}
-  - {fileID: 114860327583156312, guid: d54ff5fd81efb3a41aee288ca1c4de51, type: 2}
-  - {fileID: 114860327583156312, guid: dd06fd1d340bd5249a589eca8fdf9e9f, type: 2}
-  - {fileID: 114860327583156312, guid: e45f9897fc472f34cb70e9e819a953dc, type: 2}
-  - {fileID: 114860327583156312, guid: f3b7f7f47d174cb468239f9a5a9f527c, type: 2}
+  - {fileID: 21300000, guid: 8fc758dc0d0abde49844d763884d705a, type: 3}
+  - {fileID: 21300000, guid: a8935197ed50dff4aa13b70b3ff75ab9, type: 3}
+  - {fileID: 21300000, guid: 1f5193d9bcc614241be89a542a319bbc, type: 3}
+  - {fileID: 21300000, guid: dc788c9a836063a459a7ab08b62411aa, type: 3}
+  - {fileID: 21300000, guid: 32543de98a30ab64d807386f8fb7ff8e, type: 3}
+  - {fileID: 21300000, guid: b18ffd21c692c034fb2329e278c6271d, type: 3}
   SmallCardImg3:
-  - {fileID: 114860327583156312, guid: 0e7b5113847cbea4b96bf30ffc1cba3a, type: 2}
-  - {fileID: 114860327583156312, guid: d54ff5fd81efb3a41aee288ca1c4de51, type: 2}
-  - {fileID: 114860327583156312, guid: dd06fd1d340bd5249a589eca8fdf9e9f, type: 2}
-  - {fileID: 114860327583156312, guid: e45f9897fc472f34cb70e9e819a953dc, type: 2}
-  - {fileID: 114860327583156312, guid: f3b7f7f47d174cb468239f9a5a9f527c, type: 2}
+  - {fileID: 21300000, guid: a8935197ed50dff4aa13b70b3ff75ab9, type: 3}
+  - {fileID: 21300000, guid: 1f5193d9bcc614241be89a542a319bbc, type: 3}
+  - {fileID: 21300000, guid: dc788c9a836063a459a7ab08b62411aa, type: 3}
+  - {fileID: 21300000, guid: 32543de98a30ab64d807386f8fb7ff8e, type: 3}
+  - {fileID: 21300000, guid: b18ffd21c692c034fb2329e278c6271d, type: 3}
+  - {fileID: 21300000, guid: 8fc758dc0d0abde49844d763884d705a, type: 3}
+  SmallCardImg4:
+  - {fileID: 21300000, guid: 1f5193d9bcc614241be89a542a319bbc, type: 3}
+  - {fileID: 21300000, guid: dc788c9a836063a459a7ab08b62411aa, type: 3}
+  - {fileID: 21300000, guid: 32543de98a30ab64d807386f8fb7ff8e, type: 3}
+  - {fileID: 21300000, guid: b18ffd21c692c034fb2329e278c6271d, type: 3}
+  - {fileID: 21300000, guid: 8fc758dc0d0abde49844d763884d705a, type: 3}
+  - {fileID: 21300000, guid: a8935197ed50dff4aa13b70b3ff75ab9, type: 3}
 --- !u!114 &114930331263783852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -605,7 +625,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5118a700aa5ba1c41a048f2149a5b956, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8fc758dc0d0abde49844d763884d705a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -903,7 +923,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 364, y: 51}
+  m_AnchoredPosition: {x: 434.99997, y: 51}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224644101024613904

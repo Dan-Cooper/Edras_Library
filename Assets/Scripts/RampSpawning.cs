@@ -1,8 +1,7 @@
-﻿// This is Cathy's baby.
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.WSA.Persistence;
 
 public class RampSpawning : MonoBehaviour
 {
@@ -59,10 +58,10 @@ public class RampSpawning : MonoBehaviour
             {
                 if (_prepareRamp)
                 {
-                    if (_list.Peek() > 0)
+                    if (_curPlatVal > 0)
                         //( (currentRampTotal < maxTotal) &&(currentRampByType[rampTag] < maxByType[rampTag]) ) 
                     {
-                        SummonPlatMethod();
+                        SummonPlat();
                     }
                     else
                     {
@@ -78,11 +77,11 @@ public class RampSpawning : MonoBehaviour
                     Debug.Log("CN: Some ramp spawning error.");
                 }
             }
-            SwitchPlatMethod();
+            SwitchPlat();
 
             if (_prepareRamp)
             {
-                ScrollPlatMethod();
+                ScrollPlat();
 
                 if (Input.GetButtonDown("Undo Summon"))
                 {
@@ -97,9 +96,8 @@ public class RampSpawning : MonoBehaviour
             Debug.Log("CN: Ramp spawning disabled. :3");
         }
     }
-    //####################################################################
 
-    void SummonPlatMethod()
+    void SummonPlat()
     {
         Destroy(guideInst); // deletes rampGuide instance
 
@@ -122,41 +120,15 @@ public class RampSpawning : MonoBehaviour
                 //							, whereRampSpawns
             );
         // Ctrl + F add sound here
-
+        
         _prepareRamp = true;
     }
-    //####################################################################
 
-    void SwitchPlatMethod()
+    void SwitchPlat()
     {
         if (Input.GetButtonDown("Switch Plat"))
         {
-            // assign ramp# based on rampTag
-            /*if(rampTag>=0 && rampTag < arraySize-1){
-                rampTag +=1;
-            }
-            else if(rampTag == arraySize-1){
-                rampTag = 0;
-            }
-            else{
-                Debug.Log("Error.");
-            }*/
-
-            // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv testing grounds
             Debug.Log(rampQ.Peek().name + "==" + _list.Peek() + "?");
-            /*if(currentRampByType[rampTag] == maxByType[rampTag]) {	// skip if that plat all used
-                if(rampTag>=0 || rampTag < arraySize-1){		// repeat code
-                    rampTag +=1;
-                }
-                else if(rampTag == arraySize-1){
-                    rampTag = 0;
-                }
-                else{
-                    Debug.Log("Hullo.");
-                }
-                Debug.Log("xxhcjxhjgkl");
-
-            }*/
 
             GameObject hold = rampQ.Dequeue();
             rampQ.Enqueue(hold);
@@ -164,8 +136,6 @@ public class RampSpawning : MonoBehaviour
             rampGuideObjQ.Enqueue(h2);
             _list.Enqueue(_curPlatVal);
             _curPlatVal = _list.Dequeue();
-            
-            // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ testing grounds
 
             if (_prepareRamp)
             {
@@ -175,15 +145,13 @@ public class RampSpawning : MonoBehaviour
                         , whereRampSpawns.position
                         , playerTransform.rotation
                         , playerTransform
-                        //							,whereRampSpawns
                     );
                 // Ctrl + F add sound here
             }
         }
     }
     //####################################################################
-
-    void ScrollPlatMethod()
+    void ScrollPlat()
     {
         //Debug.Log(guideInst.transform.localPosition.y);
 
@@ -205,6 +173,16 @@ public class RampSpawning : MonoBehaviour
     }
     //####################################################################
 
+    public int Get_CurentVal()
+    {
+        return _curPlatVal;
+    }
+
+    public Queue<int> Get_List()
+    {
+        return _list;
+    }
+
     IEnumerator LoadQ()
     {
         _list.Enqueue(SquarePlat);
@@ -213,7 +191,6 @@ public class RampSpawning : MonoBehaviour
         _list.Enqueue(RampPlat);
         _list.Enqueue(XPlat);
         _list.Enqueue(WallPlat);
-        
 
         _curPlatVal = _list.Dequeue();
         
