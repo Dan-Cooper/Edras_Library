@@ -569,26 +569,6 @@ Prefab:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1705247508}
-    - target: {fileID: 114777393336429618, guid: 77fbd5204deb5364cba7b45f23101efd,
-        type: 2}
-      propertyPath: FadeSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114400218863294468, guid: 77fbd5204deb5364cba7b45f23101efd,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0.7058823
-      objectReference: {fileID: 0}
-    - target: {fileID: 114400218863294468, guid: 77fbd5204deb5364cba7b45f23101efd,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114400218863294468, guid: 77fbd5204deb5364cba7b45f23101efd,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 77fbd5204deb5364cba7b45f23101efd, type: 2}
   m_IsPrefabParent: 0

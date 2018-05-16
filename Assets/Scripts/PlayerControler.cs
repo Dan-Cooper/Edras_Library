@@ -1,6 +1,7 @@
 ﻿using System.CodeDom.Compiler;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerControler : MonoBehaviour
@@ -11,7 +12,7 @@ public class PlayerControler : MonoBehaviour
 
     //public Image Black;
 
-    public float TransitionSpeed;
+    //public float TransitionSpeed;
     //private Rigidbody rb;
 
     public GameObject Ledge;
@@ -61,6 +62,8 @@ public class PlayerControler : MonoBehaviour
         }
         if (_health < 100 && _healing)
             _health += 1;
+        if(_dead && Input.anyKeyDown)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         
         StartCoroutine(Heal());
         
