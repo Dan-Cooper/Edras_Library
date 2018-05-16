@@ -1011,6 +1011,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82036195780477646, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: BypassListenerEffects
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e51689707a4c46644b360cb5da28c96b, type: 2}
   m_IsPrefabParent: 0

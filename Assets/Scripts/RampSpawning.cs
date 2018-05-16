@@ -32,6 +32,10 @@ public class RampSpawning : MonoBehaviour {
 	[Header("      be at zero.")]
 	public int[] currentRampByType;
 
+	public AudioSource summonFX;
+	public AudioSource switchFX;
+	public AudioSource humFX;
+
 
 	void Start () {
 		playerTransform = GetComponent<Transform>();
@@ -88,6 +92,8 @@ public class RampSpawning : MonoBehaviour {
 			, playerTransform.rotation
 		);
 		// Ctrl + F add sound here
+		humFX.Stop();
+		summonFX.Play();
 
 		currentRampTotal += 1;
 		currentRampByType[rampTag] +=1;
@@ -103,6 +109,7 @@ public class RampSpawning : MonoBehaviour {
 				//							, whereRampSpawns
 			);
 		// Ctrl + F add sound here
+		humFX.Play();
 
 		prepareRamp = true;
 	}
@@ -149,6 +156,7 @@ public class RampSpawning : MonoBehaviour {
 					);
 				// Ctrl + F add sound here
 			}
+			switchFX.Play();
 		}
 	}
 	//####################################################################
