@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: c8ba96ebab06bcf4f980fc0bc94c18ac
+  - enabled: 1
     path: Assets/Scenes/TestLevle.unity
     guid: d9c1d1412dab9404a85049db73b71ec1
   - enabled: 1
@@ -14,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Quintin's Scene.unity
     guid: ebc2fab24521f514d9d9906aeb19a394
+  - enabled: 1
+    path: Assets/Scenes/Tower_Level.unity
+    guid: 18e28fa7ca8f8d94b81b7f7a1c637134
   - enabled: 1
     path: Assets/Scenes/Level6.unity
     guid: 7de028248e1fa734eb5444817b6491b1
