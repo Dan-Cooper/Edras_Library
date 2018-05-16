@@ -1,6 +1,7 @@
 ﻿using System.CodeDom.Compiler;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerControler : MonoBehaviour
@@ -9,9 +10,9 @@ public class PlayerControler : MonoBehaviour
     private Vector3 OsdForce;
     public float ForceMult;
 
-    public Image Black;
+    //public Image Black;
 
-    public float TransitionSpeed;
+    //public float TransitionSpeed;
     //private Rigidbody rb;
 
     public GameObject Ledge;
@@ -61,6 +62,8 @@ public class PlayerControler : MonoBehaviour
         }
         if (_health < 100 && _healing)
             _health += 1;
+        if(_dead && Input.anyKeyDown)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         
         StartCoroutine(Heal());
         
@@ -79,7 +82,7 @@ public class PlayerControler : MonoBehaviour
         }
 
         if(!_dead)MovePlayer();
-        else Black.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, TransitionSpeed * Time.deltaTime);
+        //else Black.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, TransitionSpeed * Time.deltaTime);
         OsdForce=new Vector3(0,0,0);
     }
 
@@ -262,5 +265,10 @@ public class PlayerControler : MonoBehaviour
         //print(force);
         OsdForce = force;
         _charControl.Move(Vector3.Lerp(transform.position, force, 0.5f * Time.deltaTime));
+    }
+
+    public float GetHealth()
+    {
+        return _health;
     }
 }
