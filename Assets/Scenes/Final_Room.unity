@@ -611,14 +611,14 @@ Transform:
   - {fileID: 1731094517}
   - {fileID: 1978412337}
   - {fileID: 705839949}
+  - {fileID: 101260378}
   - {fileID: 1293267905}
   - {fileID: 2003446114}
   - {fileID: 303936484}
   - {fileID: 1293432119}
-  - {fileID: 233710585}
-  - {fileID: 101260378}
-  - {fileID: 1108166034}
   - {fileID: 1642110926}
+  - {fileID: 233710585}
+  - {fileID: 1108166034}
   - {fileID: 1004707774}
   - {fileID: 1124937538}
   - {fileID: 1507833047}
@@ -4211,6 +4211,11 @@ Prefab:
         type: 2}
       propertyPath: WalkSpeed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e51689707a4c46644b360cb5da28c96b, type: 2}
