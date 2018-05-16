@@ -66177,6 +66177,42 @@ Prefab:
       propertyPath: SquarePlat
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: RampGuideObj.Array.data[0]
+      value: 
+      objectReference: {fileID: 1940011640588090, guid: fe5e87c29e85f3747b78e72716e7b281,
+        type: 2}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: RampGuideObj.Array.data[1]
+      value: 
+      objectReference: {fileID: 1905336814731032, guid: d69539eb21fb33c42852ec47754b3fa2,
+        type: 2}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: RampGuideObj.Array.data[2]
+      value: 
+      objectReference: {fileID: 1777287658103804, guid: ada4992a712b9a44286db1d30494851e,
+        type: 2}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: RampGuideObj.Array.data[3]
+      value: 
+      objectReference: {fileID: 1946775001473904, guid: 7588425ccea96274abe40cf5d6bd1b98,
+        type: 2}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: RampGuideObj.Array.data[4]
+      value: 
+      objectReference: {fileID: 1269393364080008, guid: b4f76235b69713047b96b1da2f32c71e,
+        type: 2}
+    - target: {fileID: 114671858531066166, guid: e51689707a4c46644b360cb5da28c96b,
+        type: 2}
+      propertyPath: RampGuideObj.Array.data[5]
+      value: 
+      objectReference: {fileID: 1446711513245650, guid: 412ac3deb12666f42929ac2505ebc88d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e51689707a4c46644b360cb5da28c96b, type: 2}
   m_IsPrefabParent: 0
